@@ -71,7 +71,7 @@ test('keeps the verified outbound dataset free of known invalid candidates and i
     .filter((stop) => stop.category === 'recommended')
     .map((stop) => stop.id)
 
-  assert.equal(trip.stops.length, 9)
+  assert.equal(trip.stops.length, 10)
   assert.equal(ids.has('area-boceguillas'), false)
   assert.equal(ids.has('ribera-del-duero'), false)
   assert.equal(trip.stops.some((stop) => stop.kind === 'destination'), false)
@@ -83,10 +83,42 @@ test('keeps the verified outbound dataset free of known invalid candidates and i
   )
   assert.deepEqual(recommendedIds, [
     'tudanca-fuentespina',
+    'quintanapalla-norte',
     'briviesca-norte',
     'altube-bilbao',
     'ugaldebieta-santander'
   ])
+})
+
+test('places verified Quintanapalla between El Alfoz and Briviesca in route and emergency order', () => {
+  const orderedIds = [...trip.stops]
+    .sort((first, second) => first.routeOrder - second.routeOrder)
+    .map((stop) => stop.id)
+  const quintanapalla = trip.stops.find((stop) => stop.id === 'quintanapalla-norte')
+  const passedBeforeElAlfoz = orderedIds.slice(0, orderedIds.indexOf('alfoz-villagonzalo'))
+
+  assert.deepEqual(
+    orderedIds.slice(orderedIds.indexOf('alfoz-villagonzalo'), orderedIds.indexOf('briviesca-norte') + 1),
+    ['alfoz-villagonzalo', 'quintanapalla-norte', 'briviesca-norte']
+  )
+  assert.deepEqual(
+    getUpcomingStops(trip.stops, passedBeforeElAlfoz, 3, trip.date).map((stop) => stop.id),
+    ['alfoz-villagonzalo', 'quintanapalla-norte', 'briviesca-norte']
+  )
+  assert.equal(quintanapalla.direction.status, 'confirmed')
+  assert.equal(quintanapalla.location.status, 'confirmed')
+  assert.match(quintanapalla.location.navigationUrl, /42\.40341263,-3\.54918084$/)
+  assert.deepEqual(quintanapalla.kmFromOrigin, { value: null, status: 'unknown' })
+  assert.equal(quintanapalla.services.highChairs, 'unknown')
+})
+
+test('persists Quintanapalla progress with the trip dataset', () => {
+  const storage = memoryStorage()
+  const validIds = trip.stops.map((stop) => stop.id)
+
+  savePassedStops(storage, trip.id, ['quintanapalla-norte'])
+
+  assert.deepEqual(loadPassedStops(storage, trip.id, validIds), ['quintanapalla-norte'])
 })
 
 test('persists only unique, valid stop ids for a trip', () => {

@@ -16,6 +16,7 @@ const serviceLabels = {
   cafe: 'Cafetería',
   restaurant: 'Restaurante',
   shop: 'Tienda',
+  parking: 'Aparcamiento',
   changingTable: 'Cambiador',
   highChairs: 'Tronas',
   kidsMenu: 'Menú infantil',
