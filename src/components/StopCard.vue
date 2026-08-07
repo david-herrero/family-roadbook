@@ -76,10 +76,10 @@ function distanceLabel(distance) {
     </div>
 
     <p v-if="stop.dataStatus !== 'verified'" class="provisional-note">
-      <strong>Provisional:</strong> ubicación, acceso y servicios pendientes de verificar.
+      <strong>Provisional:</strong> algunos datos de acceso o servicios siguen pendientes de verificar.
     </p>
     <p v-else class="provisional-note">
-      <strong>Verificada:</strong> establecimiento y sentido contrastados; los km acumulados desde Madrid son orientativos.
+      <strong>Verificada:</strong> establecimiento y sentido contrastados; consulta el detalle para distinguir servicios confirmados y desconocidos.
     </p>
 
     <dl class="stop-facts">

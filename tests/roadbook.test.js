@@ -1,12 +1,18 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import {
   clearPassedStops,
   getProgressKey,
   getUpcomingStops,
+  isStopAvailableOnDate,
   loadPassedStops,
   savePassedStops
 } from '../src/utils/roadbook.js'
+
+const trip = JSON.parse(
+  readFileSync(new URL('../src/data/trips/madrid-castro-2026.json', import.meta.url), 'utf8')
+)
 
 function memoryStorage() {
   const values = new Map()
@@ -38,6 +44,49 @@ test('never includes a destination among emergency stops', () => {
   ]
 
   assert.deepEqual(getUpcomingStops(routePoints, []).map((stop) => stop.id), ['stop'])
+})
+
+test('excludes a stop throughout a closed period, including its boundaries', () => {
+  const closedStop = {
+    id: 'closed',
+    routeOrder: 1,
+    kind: 'stop-area',
+    availability: {
+      closedPeriods: [{ start: '2026-08-01', end: '2026-08-24' }]
+    }
+  }
+  const openStop = { id: 'open', routeOrder: 2, kind: 'stop-area' }
+
+  assert.equal(isStopAvailableOnDate(closedStop, '2026-08-01'), false)
+  assert.equal(isStopAvailableOnDate(closedStop, '2026-08-24'), false)
+  assert.deepEqual(
+    getUpcomingStops([closedStop, openStop], [], 3, '2026-08-10').map((stop) => stop.id),
+    ['open']
+  )
+})
+
+test('keeps the verified outbound dataset free of known invalid candidates and invented distances', () => {
+  const ids = new Set(trip.stops.map((stop) => stop.id))
+  const recommendedIds = trip.stops
+    .filter((stop) => stop.category === 'recommended')
+    .map((stop) => stop.id)
+
+  assert.equal(trip.stops.length, 9)
+  assert.equal(ids.has('area-boceguillas'), false)
+  assert.equal(ids.has('ribera-del-duero'), false)
+  assert.equal(trip.stops.some((stop) => stop.kind === 'destination'), false)
+  assert.equal(
+    trip.stops.every((stop) =>
+      stop.kmFromOrigin.value === null && stop.kmFromOrigin.status === 'unknown'
+    ),
+    true
+  )
+  assert.deepEqual(recommendedIds, [
+    'tudanca-fuentespina',
+    'briviesca-norte',
+    'altube-bilbao',
+    'ugaldebieta-santander'
+  ])
 })
 
 test('persists only unique, valid stop ids for a trip', () => {

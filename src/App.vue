@@ -16,9 +16,14 @@ const emergencyOpen = ref(false)
 const isOffline = ref(false)
 
 const validStopIds = trip.stops.map((stop) => stop.id)
-const upcomingStops = computed(() => getUpcomingStops(trip.stops, passedIds.value, 3))
+const upcomingStops = computed(() => getUpcomingStops(trip.stops, passedIds.value, 3, trip.date))
 const passedCount = computed(() => passedIds.value.length)
 const progressPercent = computed(() => Math.round((passedCount.value / trip.stops.length) * 100))
+const dataStatusLabel = computed(() => {
+  if (trip.dataStatus === 'verified') return 'Paradas verificadas'
+  if (trip.dataStatus === 'mixed') return 'Datos contrastados y provisionales'
+  return 'Datos provisionales'
+})
 
 const formattedDate = new Intl.DateTimeFormat('es-ES', {
   day: 'numeric',
@@ -66,7 +71,7 @@ onBeforeUnmount(() => {
     <header class="trip-header">
       <div class="trip-header__topline">
         <span class="trip-label">Roadbook familiar</span>
-        <span class="status-pill">{{ trip.dataStatus === 'verified' ? 'Paradas verificadas' : 'Datos provisionales' }}</span>
+        <span class="status-pill">{{ dataStatusLabel }}</span>
       </div>
       <h1>{{ trip.title }}</h1>
       <p class="destination">Destino: <strong>{{ trip.destination.label }}</strong></p>

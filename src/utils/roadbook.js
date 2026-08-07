@@ -4,11 +4,26 @@ export function getProgressKey(tripId) {
   return `${STORAGE_PREFIX}${tripId}`
 }
 
-export function getUpcomingStops(stops, passedIds, limit = 3) {
+export function isStopAvailableOnDate(stop, tripDate) {
+  if (!tripDate) return true
+
+  const travelDate = String(tripDate).slice(0, 10)
+  const closedPeriods = stop.availability?.closedPeriods ?? []
+
+  return !closedPeriods.some((period) =>
+    period.start && period.end && period.start <= travelDate && travelDate <= period.end
+  )
+}
+
+export function getUpcomingStops(stops, passedIds, limit = 3, tripDate = null) {
   const passed = new Set(passedIds)
 
   return [...stops]
-    .filter((stop) => stop.kind !== 'destination' && !passed.has(stop.id))
+    .filter((stop) =>
+      stop.kind !== 'destination' &&
+      !passed.has(stop.id) &&
+      isStopAvailableOnDate(stop, tripDate)
+    )
     .sort((first, second) => first.routeOrder - second.routeOrder)
     .slice(0, limit)
 }

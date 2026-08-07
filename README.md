@@ -3,7 +3,7 @@
 PWA mobile-first para consultar un roadbook familiar de carretera. La V1 cubre el corredor Madrid → Castro Urdiales del 10 de agosto de 2026 y complementa a Google Maps: muestra las próximas opciones de parada, pero no calcula rutas, tráfico ni navegación.
 
 > [!WARNING]
-> El dataset actual es **provisional**. Los candidatos proceden de la issue #1, pero sus ubicaciones exactas, sentidos, accesos y servicios todavía requieren verificación independiente. La interfaz muestra esos campos como provisionales o desconocidos y no confirma ningún servicio.
+> El dataset outbound actual contiene nueve áreas contrastadas a partir de la validación documentada en la issue #1. Solo se marcan como confirmados los servicios respaldados por esas fuentes; el resto permanece como `unknown`. Algunos accesos, el destino y las distancias acumuladas desde Madrid siguen siendo provisionales o desconocidos.
 
 ## Stack y arquitectura
 
@@ -14,7 +14,7 @@ PWA mobile-first para consultar un roadbook familiar de carretera. La V1 cubre e
 - Service worker y manifest generados con `vite-plugin-pwa`.
 - Tests de la lógica pura con el runner integrado de Node.js.
 
-La función de próximas paradas descarta los IDs ya superados, ordena el resto por `routeOrder` y devuelve hasta tres. No usa geolocalización. El orden representa únicamente la secuencia del corredor, no una distancia en tiempo real ni una recomendación basada en servicios.
+La función de próximas paradas descarta destinos, periodos de cierre que incluyan la fecha del viaje e IDs ya superados; después ordena el resto por `routeOrder` y devuelve hasta tres. No usa geolocalización. El orden representa únicamente la secuencia del corredor, no una distancia en tiempo real.
 
 ## Desarrollo
 
@@ -55,6 +55,6 @@ Al ser una sola vista sin rutas de cliente, no hace falta configuración adicion
 
 ## Datos de viajes futuros
 
-Cada fichero de viaje tiene un ID estable, metadatos de ruta, un destino separado y una lista ordenada que contiene únicamente áreas de parada. Los servicios admiten `true`, `false` o `"unknown"`; los datos de distancia, carretera, sentido y ubicación incluyen su propio estado. Para añadir otra ruta se puede crear otro JSON con el mismo `schemaVersion` y reutilizar la UI sin cambiar el modelo.
+Cada fichero de viaje tiene un ID estable, metadatos de ruta, un destino separado y una lista ordenada que contiene únicamente áreas de parada. Los servicios admiten `true`, `false` o `"unknown"`; los datos de distancia, carretera, sentido y ubicación incluyen su propio estado. El selector también admite periodos opcionales `availability.closedPeriods` con fechas inclusivas. Para añadir otra ruta se puede crear otro JSON con el mismo `schemaVersion` y reutilizar la UI sin cambiar el modelo.
 
 No deben añadirse nombres de menores, matrículas, domicilios, secretos ni otros datos privados.
