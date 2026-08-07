@@ -16,248 +16,100 @@
       "status": "provisional"
     }
   },
-  "corridor": ["A-1", "AP-1", "AP-68", "A-8"],
-  "dataStatus": "provisional",
-  "dataNotice": "Todos los candidatos, sentidos, ubicaciones y servicios están pendientes de verificación independiente.",
-  "estimates": {
-    "distanceKm": null,
-    "durationMinutes": null,
-    "status": "unknown"
-  },
+  "corridor": ["A-1", "AP-1", "N-622", "AP-68", "A-8"],
+  "dataStatus": "verified",
+  "dataNotice": "Las áreas, sentidos y servicios marcados como confirmados se han contrastado con fuentes recientes. Los kilómetros acumulados desde Madrid son orientativos y la ruta real debe confirmarse en Google Maps el día del viaje.",
+  "estimates": {"distanceKm": null, "durationMinutes": null, "status": "unknown"},
   "stops": [
     {
-      "id": "la-cabrera",
-      "routeOrder": 1,
-      "name": "La Cabrera",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "A-1", "kilometerPost": null, "status": "unknown" },
-      "direction": { "label": "sentido Burgos", "status": "provisional" },
+      "id": "la-cabrera-shell", "routeOrder": 1, "name": "Shell La Cabrera (A-1 km 60)", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 60, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "A-1", "kilometerPost": 60, "status": "confirmed"}, "direction": {"label": "sentido Burgos (margen norte)", "status": "confirmed"},
       "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "La Cabrera A-1 Madrid",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=La%20Cabrera%20A-1%20Madrid",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Zona candidata citada en la issue; establecimiento exacto por definir."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "location": {"coordinates": {"lat": 40.875833, "lng": -3.602389}, "mapQuery": "Shell La Cabrera A-1 km 60", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=40.875833,-3.602389", "status": "confirmed"},
+      "services": {"fuel": true, "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown", "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown", "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown", "open24Hours": true, "accessibility": "unknown"},
+      "notes": ["Parada de contingencia temprana. La estación figura en A-1 km 60, margen norte, y 24 h en una fuente de precios actualizada en julio de 2026."],
+      "sources": [{"label": "Diesel o Gasolina — Shell La Cabrera", "url": "https://www.dieselogasolina.com/Buscador/Ficha/17033"}]
     },
     {
-      "id": "boceguillas",
-      "routeOrder": 2,
-      "name": "Boceguillas",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "A-1", "kilometerPost": 115, "status": "provisional" },
-      "direction": { "label": "sentido Burgos", "status": "provisional" },
-      "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Boceguillas A-1 km 115",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Boceguillas%20A-1%20km%20115",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Punto kilométrico aproximado facilitado en la issue; parada exacta por verificar."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "id": "area-boceguillas", "routeOrder": 2, "name": "Área de Boceguillas", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 115, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "A-1", "kilometerPost": 115, "status": "confirmed"}, "direction": {"label": "sentido Burgos", "status": "confirmed"},
+      "category": "recommended",
+      "location": {"coordinates": null, "mapQuery": "Área de Boceguillas A-1 km 115", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Boceguillas%20A-1%20km%20115", "status": "confirmed"},
+      "services": {"fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": true, "shop": "unknown", "changingTable": true, "highChairs": true, "kidsMenu": "unknown", "outdoorArea": true, "playArea": "unknown", "open24Hours": false, "accessibility": true},
+      "notes": ["Muy buena parada familiar: Guía Repsol confirma cambiador, tronas, jardín/terraza, aparcamiento propio, accesibilidad y que los niños son bienvenidos. No es 24 h."],
+      "sources": [{"label": "Guía Repsol — Área de Boceguillas", "url": "https://www.guiarepsol.com/es/fichas/restaurante/area-boceguillas-61496/"}, {"label": "EL PAÍS — Área de Boceguillas", "url": "https://elpais.com/gastronomia/restaurantes/2023-07-21/por-que-los-viajeros-paran-en-boceguillas-el-area-de-servicio-con-mas-fama-de-la-carretera-de-burgos.html"}]
     },
     {
-      "id": "fuentespina-tudanca",
-      "routeOrder": 3,
-      "name": "Complejo Tudanca / Fuentespina",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "A-1", "kilometerPost": 153, "status": "provisional" },
-      "direction": { "label": "sentido Burgos", "status": "provisional" },
-      "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Complejo Tudanca Fuentespina A-1 km 153",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Complejo%20Tudanca%20Fuentespina%20A-1%20km%20153",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Nombre y punto kilométrico aproximado proceden de la issue; datos por verificar."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "id": "tudanca-fuentespina", "routeOrder": 3, "name": "Complejo Tudanca / Fuentespina", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 153, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "A-1", "kilometerPost": 152.8, "status": "confirmed"}, "direction": {"label": "sentido Burgos", "status": "confirmed"},
+      "category": "recommended",
+      "location": {"coordinates": null, "mapQuery": "Complejo Tudanca Fuentespina A-1 km 153", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Complejo%20Tudanca%20Fuentespina%20A-1%20km%20153", "status": "confirmed"},
+      "services": {"fuel": true, "toilets": "unknown", "cafe": true, "restaurant": true, "shop": true, "changingTable": "unknown", "highChairs": true, "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown", "open24Hours": false, "accessibility": true},
+      "notes": ["Complejo muy completo: gasolinera Moeve y tienda 07:00–23:00, restaurante, cafetería, parking y tronas. El hotel tiene recepción 24 h, pero no se considera la parada completa 24 h."],
+      "sources": [{"label": "Moeve — TUDANCA", "url": "https://www.moeve.es/es/cerca-de-ti/gasolineras/burgos/fuentespina-tudanca"}, {"label": "Turismo Castilla y León — Tudanca Aranda", "url": "https://www.turismocastillayleon.com/cm/turismocyl/connector?alias=turismocyl&formatType=printable-pdf&idContent=9927&locale=es_ES&ownerIso=es_ES"}]
     },
     {
-      "id": "ribera-del-duero",
-      "routeOrder": 4,
-      "name": "Área Ribera del Duero",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "A-1", "kilometerPost": 189.9, "status": "provisional" },
-      "direction": { "label": "sentido Burgos", "status": "provisional" },
-      "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Área Ribera del Duero A-1 km 189.9",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20Ribera%20del%20Duero%20A-1%20km%20189.9",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Nombre y punto kilométrico aproximado proceden de la issue; datos por verificar."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "id": "ribera-del-duero", "routeOrder": 4, "name": "Área de Servicio Ribera del Duero", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 190, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "A-1", "kilometerPost": 189.9, "status": "confirmed"}, "direction": {"label": "sentido Burgos", "status": "confirmed"},
+      "category": "good",
+      "location": {"coordinates": null, "mapQuery": "Área de Servicio Ribera del Duero A-1 km 189.9 Cilleruelo de Abajo", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Ribera%20del%20Duero%20A-1%20km%20189.9", "status": "confirmed"},
+      "services": {"fuel": true, "toilets": "unknown", "cafe": true, "restaurant": true, "shop": true, "changingTable": "unknown", "highChairs": "unknown", "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown", "open24Hours": true, "accessibility": true},
+      "notes": ["Área grande y 24 h con gasolinera, tienda, hotel, restaurante/bar-cafetería, aparcamiento y servicios para viajeros. Buena opción si hace falta parar antes de Burgos."],
+      "sources": [{"label": "Área Ribera del Duero — ficha de servicios", "url": "https://pidemesa.es/restaurantes/burgos/burgos/area-de-servicio-ribera-del-duero"}, {"label": "Ficha de horario — Ribera del Duero", "url": "https://www.laterrazadelebro.es/area-de-servicio-ribera-del-duero/"}]
     },
     {
-      "id": "burgos-enlace-ap1",
-      "routeOrder": 5,
-      "name": "Burgos / salida hacia AP-1",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "A-1 / AP-1", "kilometerPost": null, "status": "unknown" },
-      "direction": { "label": "sentido AP-1", "status": "provisional" },
-      "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Burgos enlace AP-1",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Burgos%20enlace%20AP-1",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Zona candidata; falta seleccionar y verificar una parada concreta."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "id": "quintanapalla-norte", "routeOrder": 5, "name": "Área de Servicio Quintanapalla (sentido Bilbao)", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 254, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "AP-1", "kilometerPost": 12, "status": "confirmed"}, "direction": {"label": "sentido Bilbao / Vitoria", "status": "confirmed"},
+      "category": "good",
+      "location": {"coordinates": null, "mapQuery": "Área de Servicio Quintanapalla AP-1 km 12 dirección Bilbao", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Quintanapalla%20AP-1%20km%2012", "status": "confirmed"},
+      "services": {"fuel": true, "toilets": true, "cafe": "unknown", "restaurant": true, "shop": true, "changingTable": "unknown", "highChairs": "unknown", "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown", "open24Hours": true, "accessibility": true},
+      "notes": ["Sustituye la vaga 'zona Burgos'. Está ya en la AP-1, con acceso en ambos sentidos; el área/estacionamiento figura 24 h y accesible. Gasolinera, tienda y restaurante disponibles."],
+      "sources": [{"label": "BOE — Área de Servicio Quintanapalla AP-1 PK 12", "url": "https://www.boe.es/buscar/doc.php?id=BOE-B-2020-7197"}, {"label": "Directorio — Área de Servicio Quintanapalla", "url": "https://oficina.directoriogratis.es/area-de-servicio-quintanapalla-ap1/"}]
     },
     {
-      "id": "briviesca",
-      "routeOrder": 6,
-      "name": "Briviesca",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "AP-1", "kilometerPost": 36, "status": "provisional" },
-      "direction": { "label": "sentido Vitoria", "status": "provisional" },
-      "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Briviesca AP-1 km 36 sentido Vitoria",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Briviesca%20AP-1%20km%2036%20sentido%20Vitoria",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Sentido y punto kilométrico aproximados proceden de la issue; parada por verificar."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "id": "briviesca-norte", "routeOrder": 6, "name": "Área de Servicio Briviesca Norte", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 278, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "AP-1", "kilometerPost": 35.5, "status": "confirmed"}, "direction": {"label": "sentido Vitoria", "status": "confirmed"},
+      "category": "recommended",
+      "location": {"coordinates": null, "mapQuery": "Área de Servicio Briviesca Norte AP-1 km 35.5 sentido Vitoria", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Briviesca%20Norte%20AP-1%20km%2035.5", "status": "confirmed"},
+      "services": {"fuel": true, "toilets": "unknown", "cafe": true, "restaurant": true, "shop": true, "changingTable": "unknown", "highChairs": "unknown", "kidsMenu": true, "outdoorArea": "unknown", "playArea": true, "open24Hours": false, "accessibility": true},
+      "notes": ["Muy buena parada familiar. El área de restauración abre 07:00–23:00 y tiene zona de juegos exterior; la gasolinera Moeve del complejo abre 24 h. Hay promoción de menú infantil en la ficha del operador."],
+      "sources": [{"label": "Areas — Briviesca Norte", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-BRIVIESCA-COMO-N"}, {"label": "Moeve — Briviesca I", "url": "https://www.moeve.es/es/cerca-de-ti/gasolineras/burgos/briviesca-briviesca-i"}, {"label": "Turismo Castilla y León — Briviesca Norte", "url": "https://www.turismocastillayleon.com/es/servicios/comer/restaurantes/area-servicio-briviesca-direccion-norte"}]
     },
     {
-      "id": "rivabellosa",
-      "routeOrder": 7,
-      "name": "Rivabellosa",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "AP-1", "kilometerPost": null, "status": "unknown" },
-      "direction": { "label": "sentido Vitoria / Bilbao", "status": "provisional" },
+      "id": "shell-rivabellosa", "routeOrder": 7, "name": "Shell Rivabellosa", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 320, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "N-I / enlace AP-1", "kilometerPost": null, "status": "unknown"}, "direction": {"label": "sentido Vitoria / Bilbao", "status": "confirmed"},
       "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Rivabellosa AP-1",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Rivabellosa%20AP-1",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Zona candidata citada en la issue; ubicación exacta y sentido por verificar."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "location": {"coordinates": {"lat": 42.710639, "lng": -2.906944}, "mapQuery": "Shell Rivabellosa", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=42.710639,-2.906944", "status": "confirmed"},
+      "services": {"fuel": true, "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown", "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown", "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown", "open24Hours": true, "accessibility": "unknown"},
+      "notes": ["Parada de contingencia: Shell confirma estación atendida y combustible 24 h. No contamos como confirmados baños o restauración porque la ficha oficial consultada no los enumera."],
+      "sources": [{"label": "Shell — Rivabellosa", "url": "https://find.shell.com/es/fuel/10128885-rivabellosa"}]
     },
     {
-      "id": "altube",
-      "routeOrder": 8,
-      "name": "Altube",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "AP-68", "kilometerPost": 36, "status": "provisional" },
-      "direction": { "label": "sentido Bilbao", "status": "provisional" },
-      "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Altube AP-68 km 36 sentido Bilbao",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Altube%20AP-68%20km%2036%20sentido%20Bilbao",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Sentido y punto kilométrico aproximados proceden de la issue; parada por verificar."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "id": "altube-bilbao", "routeOrder": 8, "name": "Área de Servicio Altube – La Pausa", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 352, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "AP-68", "kilometerPost": 36, "status": "confirmed"}, "direction": {"label": "sentido Bilbao", "status": "confirmed"},
+      "category": "recommended",
+      "location": {"coordinates": null, "mapQuery": "Área de Servicio Altube La Pausa AP-68 km 36 dirección Bilbao", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Altube%20La%20Pausa%20AP-68%20km%2036", "status": "confirmed"},
+      "services": {"fuel": true, "toilets": true, "cafe": true, "restaurant": true, "shop": true, "changingTable": "unknown", "highChairs": true, "kidsMenu": "unknown", "outdoorArea": true, "playArea": true, "open24Hours": false, "accessibility": true},
+      "notes": ["De las mejores paradas de la segunda mitad: gasolinera, tienda, restauración, zona exterior/juegos y accesibilidad. El operador Areas publica 06:30–23:30 para La Pausa sentido Bilbao; el hotel anexo ofrece cafetería 24 h."],
+      "sources": [{"label": "Areas — Altube La Pausa", "url": "https://smarttravelers.areas.com/marcas/La-Pausa"}, {"label": "AS Hoteles — Altube", "url": "https://www.areashoteles.com/hotel/as-hotel-altube/"}]
     },
     {
-      "id": "ugaldebieta",
-      "routeOrder": 9,
-      "name": "Ugaldebieta",
-      "kind": "stop-area",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": null, "status": "unknown" },
-      "road": { "name": "A-8", "kilometerPost": 131, "status": "provisional" },
-      "direction": { "label": "sentido Santander / Gijón", "status": "provisional" },
-      "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Ugaldebieta A-8 km 131 sentido Santander",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Ugaldebieta%20A-8%20km%20131%20sentido%20Santander",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Sentido y punto kilométrico aproximados proceden de la issue; acceso por verificar."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
+      "id": "ugaldebieta-santander", "routeOrder": 9, "name": "Área de Servicio Ugaldebieta – La Pausa", "kind": "stop-area", "dataStatus": "verified",
+      "kmFromOrigin": {"value": 399, "status": "provisional"}, "distanceToDestinationKm": {"value": null, "status": "unknown"},
+      "road": {"name": "A-8", "kilometerPost": 131, "status": "confirmed"}, "direction": {"label": "sentido Santander / Gijón", "status": "confirmed"},
+      "category": "good",
+      "location": {"coordinates": null, "mapQuery": "Área de Servicio Ugaldebieta La Pausa A-8 km 131 dirección Santander", "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Ugaldebieta%20La%20Pausa%20A-8%20km%20131", "status": "confirmed"},
+      "services": {"fuel": true, "toilets": "unknown", "cafe": "unknown", "restaurant": true, "shop": true, "changingTable": "unknown", "highChairs": "unknown", "kidsMenu": true, "outdoorArea": "unknown", "playArea": "unknown", "open24Hours": false, "accessibility": true},
+      "notes": ["Última parada útil antes de Castro. Importante: usar la instalación dirección Santander-Gijón; la ficha de Cafestore que aparece mucho en búsquedas corresponde al sentido Bilbao. Areas publica 07:00–23:15 para La Pausa sentido Santander-Gijón."],
+      "sources": [{"label": "Areas — Ugaldebieta La Pausa, sentido Santander-Gijón", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-UGALDEBIETA-LAPAUSA"}]
     }
   ]
 }
