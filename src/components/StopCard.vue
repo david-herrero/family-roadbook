@@ -28,7 +28,7 @@ const serviceLabels = {
 const categoryLabels = {
   recommended: '★ Recomendada',
   good: '● Buena opción',
-  fallback: '◇ Alternativa provisional'
+  fallback: '◇ Parada de contingencia'
 }
 
 const confirmedServices = computed(() =>
@@ -75,15 +75,18 @@ function distanceLabel(distance) {
       </span>
     </div>
 
-    <p class="provisional-note">
+    <p v-if="stop.dataStatus !== 'verified'" class="provisional-note">
       <strong>Provisional:</strong> ubicación, acceso y servicios pendientes de verificar.
+    </p>
+    <p v-else class="provisional-note">
+      <strong>Verificada:</strong> establecimiento y sentido contrastados; los km acumulados desde Madrid son orientativos.
     </p>
 
     <dl class="stop-facts">
       <div>
         <dt>Carretera / PK</dt>
         <dd>
-          {{ stop.road.name }}<template v-if="stop.road.kilometerPost !== null"> · PK ≈ {{ stop.road.kilometerPost }}</template>
+          {{ stop.road.name }}<template v-if="stop.road.kilometerPost !== null"> · PK <template v-if="stop.road.status !== 'confirmed'">≈ </template>{{ stop.road.kilometerPost }}</template>
           <template v-else> · PK desconocido</template>
         </dd>
       </div>
@@ -113,7 +116,7 @@ function distanceLabel(distance) {
         Servicios: {{ confirmedServices.length }} confirmados · {{ unknownServices.length }} desconocidos
       </summary>
       <p v-if="unknownServices.length"><strong>Sin verificar:</strong> {{ unknownServices.join(', ') }}.</p>
-      <p v-if="unavailableServices.length"><strong>No disponibles:</strong> {{ unavailableServices.join(', ') }}.</p>
+      <p v-if="unavailableServices.length"><strong>No disponibles / no 24 h:</strong> {{ unavailableServices.join(', ') }}.</p>
     </details>
 
     <p v-if="!compact" class="stop-card__note">{{ stop.notes[0] }}</p>
@@ -124,7 +127,7 @@ function distanceLabel(distance) {
         :href="stop.location.navigationUrl"
         target="_blank"
         rel="noopener noreferrer"
-        :aria-label="`Abrir ${stop.name} en Google Maps; el destino es provisional`"
+        :aria-label="`Abrir ${stop.name} en Google Maps`"
       >
         Abrir en Google Maps ↗
       </a>
