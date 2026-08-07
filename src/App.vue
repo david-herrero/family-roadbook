@@ -69,7 +69,7 @@ onBeforeUnmount(() => {
         <span class="status-pill">Datos provisionales</span>
       </div>
       <h1>{{ trip.title }}</h1>
-      <p class="destination">Destino: <strong>{{ trip.destination }}</strong></p>
+      <p class="destination">Destino: <strong>{{ trip.destination.label }}</strong></p>
 
       <dl class="trip-meta">
         <div><dt>Fecha</dt><dd>{{ formattedDate }}</dd></div>

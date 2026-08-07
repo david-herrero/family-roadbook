@@ -8,7 +8,7 @@ export function getUpcomingStops(stops, passedIds, limit = 3) {
   const passed = new Set(passedIds)
 
   return [...stops]
-    .filter((stop) => !passed.has(stop.id))
+    .filter((stop) => stop.kind !== 'destination' && !passed.has(stop.id))
     .sort((first, second) => first.routeOrder - second.routeOrder)
     .slice(0, limit)
 }

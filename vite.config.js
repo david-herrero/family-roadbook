@@ -7,6 +7,7 @@ export default defineConfig({
     vue(),
     VitePWA({
       registerType: 'autoUpdate',
+      includeAssets: ['icons/*.svg'],
       manifest: {
         name: 'Roadbook familiar · Madrid a Castro Urdiales',
         short_name: 'Roadbook',
@@ -34,8 +35,7 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,json}'],
-        globIgnores: ['**/icons/*.svg'],
+        globPatterns: ['**/*.{js,css,html,json}'],
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true
       }

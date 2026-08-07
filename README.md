@@ -55,6 +55,6 @@ Al ser una sola vista sin rutas de cliente, no hace falta configuración adicion
 
 ## Datos de viajes futuros
 
-Cada fichero de viaje tiene un ID estable, metadatos de ruta y una lista ordenada de paradas. Los servicios admiten `true`, `false` o `"unknown"`; los datos de distancia, carretera, sentido y ubicación incluyen su propio estado. Para añadir otra ruta se puede crear otro JSON con el mismo `schemaVersion` y reutilizar la UI sin cambiar el modelo.
+Cada fichero de viaje tiene un ID estable, metadatos de ruta, un destino separado y una lista ordenada que contiene únicamente áreas de parada. Los servicios admiten `true`, `false` o `"unknown"`; los datos de distancia, carretera, sentido y ubicación incluyen su propio estado. Para añadir otra ruta se puede crear otro JSON con el mismo `schemaVersion` y reutilizar la UI sin cambiar el modelo.
 
 No deben añadirse nombres de menores, matrículas, domicilios, secretos ni otros datos privados.

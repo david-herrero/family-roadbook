@@ -31,6 +31,15 @@ test('returns the three next unpassed stops in route order', () => {
   )
 })
 
+test('never includes a destination among emergency stops', () => {
+  const routePoints = [
+    { id: 'stop', routeOrder: 1, kind: 'stop-area' },
+    { id: 'hotel', routeOrder: 2, kind: 'destination' }
+  ]
+
+  assert.deepEqual(getUpcomingStops(routePoints, []).map((stop) => stop.id), ['stop'])
+})
+
 test('persists only unique, valid stop ids for a trip', () => {
   const storage = memoryStorage()
   savePassedStops(storage, 'trip-a', ['first', 'first', 'unknown'])

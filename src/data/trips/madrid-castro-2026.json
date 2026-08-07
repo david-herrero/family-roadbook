@@ -4,7 +4,18 @@
   "title": "Madrid → Castro Urdiales",
   "date": "2026-08-10",
   "origin": "Madrid",
-  "destination": "Hotel Las Rocas, Castro Urdiales",
+  "destination": {
+    "name": "Hotel Las Rocas",
+    "city": "Castro Urdiales",
+    "label": "Hotel Las Rocas, Castro Urdiales",
+    "dataStatus": "provisional",
+    "location": {
+      "coordinates": null,
+      "mapQuery": "Hotel Las Rocas Castro Urdiales",
+      "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Hotel%20Las%20Rocas%20Castro%20Urdiales",
+      "status": "provisional"
+    }
+  },
   "corridor": ["A-1", "AP-1", "AP-68", "A-8"],
   "dataStatus": "provisional",
   "dataNotice": "Todos los candidatos, sentidos, ubicaciones y servicios están pendientes de verificación independiente.",
@@ -246,32 +257,6 @@
         "open24Hours": "unknown", "accessibility": "unknown"
       },
       "notes": ["Sentido y punto kilométrico aproximados proceden de la issue; acceso por verificar."],
-      "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
-    },
-    {
-      "id": "hotel-las-rocas",
-      "routeOrder": 10,
-      "name": "Hotel Las Rocas / Castro Urdiales",
-      "kind": "destination",
-      "dataStatus": "provisional",
-      "kmFromOrigin": { "value": null, "status": "unknown" },
-      "distanceToDestinationKm": { "value": 0, "status": "confirmed" },
-      "road": { "name": "Castro Urdiales", "kilometerPost": null, "status": "unknown" },
-      "direction": { "label": "destino", "status": "confirmed" },
-      "category": "fallback",
-      "location": {
-        "coordinates": null,
-        "mapQuery": "Hotel Las Rocas Castro Urdiales",
-        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Hotel%20Las%20Rocas%20Castro%20Urdiales",
-        "status": "provisional"
-      },
-      "services": {
-        "fuel": "unknown", "toilets": "unknown", "cafe": "unknown", "restaurant": "unknown",
-        "shop": "unknown", "changingTable": "unknown", "highChairs": "unknown",
-        "kidsMenu": "unknown", "outdoorArea": "unknown", "playArea": "unknown",
-        "open24Hours": "unknown", "accessibility": "unknown"
-      },
-      "notes": ["Destino indicado en la issue; enlace de navegación basado en búsqueda textual."],
       "sources": [{ "label": "Issue #1 del repositorio", "url": "https://github.com/david-herrero/family-roadbook/issues/1" }]
     }
   ]
