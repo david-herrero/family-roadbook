@@ -1,4 +1,6 @@
 <script setup>
+import { formatRouteRoadLabel } from '../utils/roadbook.js'
+
 defineProps({
   stops: { type: Array, required: true },
   passedIds: { type: Array, required: true }
@@ -20,7 +22,7 @@ defineEmits(['mark-passed'])
       </span>
       <div class="timeline__content">
         <strong>{{ stop.name }}</strong>
-        <span>{{ stop.road.name }} · {{ passedIds.includes(stop.id) ? 'Superada' : 'Por delante' }}</span>
+        <span>{{ formatRouteRoadLabel(stop.road) }} · {{ passedIds.includes(stop.id) ? 'Superada' : 'Por delante' }}</span>
       </div>
       <button
         v-if="!passedIds.includes(stop.id)"
