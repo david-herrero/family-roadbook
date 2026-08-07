@@ -66,7 +66,7 @@ onBeforeUnmount(() => {
     <header class="trip-header">
       <div class="trip-header__topline">
         <span class="trip-label">Roadbook familiar</span>
-        <span class="status-pill">Datos provisionales</span>
+        <span class="status-pill">{{ trip.dataStatus === 'verified' ? 'Paradas verificadas' : 'Datos provisionales' }}</span>
       </div>
       <h1>{{ trip.title }}</h1>
       <p class="destination">Destino: <strong>{{ trip.destination.label }}</strong></p>
@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
 
     <main>
       <aside class="data-warning" aria-label="Aviso sobre los datos">
-        <strong>Importante:</strong> {{ trip.dataNotice }} Los enlaces abren una búsqueda textual; confirma siempre el acceso y el sentido en Google Maps.
+        <strong>Importante:</strong> {{ trip.dataNotice }} Confirma siempre el tráfico y la ruta real en Google Maps antes de desviarte.
       </aside>
 
       <EmergencyStop
@@ -146,7 +146,7 @@ onBeforeUnmount(() => {
       </section>
 
       <details class="all-stops">
-        <summary>Ver fichas de todas las paradas provisionales</summary>
+        <summary>Ver fichas de todas las paradas</summary>
         <div class="card-list">
           <StopCard
             v-for="stop in trip.stops"
