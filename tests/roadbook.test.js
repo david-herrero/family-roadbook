@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import {
   clearPassedStops,
+  formatRouteRoadLabel,
   getProgressKey,
   getUpcomingStops,
   isStopAvailableOnDate,
@@ -29,6 +30,25 @@ const stops = [
   { id: 'second', routeOrder: 2 },
   { id: 'fourth', routeOrder: 4 }
 ]
+
+test('formats confirmed, provisional and unknown route kilometer posts', () => {
+  assert.equal(
+    formatRouteRoadLabel({ name: 'A-1', kilometerPost: 116, status: 'confirmed' }),
+    'A-1 · PK 116'
+  )
+  assert.equal(
+    formatRouteRoadLabel({ name: 'A-1', kilometerPost: 60, status: 'provisional' }),
+    'A-1 · PK ≈ 60'
+  )
+  assert.equal(
+    formatRouteRoadLabel({ name: 'A-1', kilometerPost: null, status: 'unknown' }),
+    'A-1'
+  )
+  assert.equal(
+    formatRouteRoadLabel({ name: 'A-1', kilometerPost: 42, status: 'unknown' }),
+    'A-1'
+  )
+})
 
 test('returns the three next unpassed stops in route order', () => {
   assert.deepEqual(

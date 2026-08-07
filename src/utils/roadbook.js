@@ -28,6 +28,18 @@ export function getUpcomingStops(stops, passedIds, limit = 3, tripDate = null) {
     .slice(0, limit)
 }
 
+export function formatRouteRoadLabel(road) {
+  const hasDisplayableKilometerPost =
+    road.kilometerPost !== null &&
+    road.kilometerPost !== undefined &&
+    (road.status === 'confirmed' || road.status === 'provisional')
+
+  if (!hasDisplayableKilometerPost) return road.name
+
+  const approximation = road.status === 'provisional' ? '≈ ' : ''
+  return `${road.name} · PK ${approximation}${road.kilometerPost}`
+}
+
 export function loadPassedStops(storage, tripId, validStopIds = []) {
   if (!storage) return []
 
