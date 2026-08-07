@@ -3,7 +3,7 @@
 PWA mobile-first para consultar un roadbook familiar de carretera. La V1 cubre el corredor Madrid → Castro Urdiales del 10 de agosto de 2026 y complementa a Google Maps: muestra las próximas opciones de parada, pero no calcula rutas, tráfico ni navegación.
 
 > [!WARNING]
-> El dataset outbound actual contiene nueve áreas contrastadas a partir de la validación documentada en la issue #1. Solo se marcan como confirmados los servicios respaldados por esas fuentes; el resto permanece como `unknown`. Algunos accesos, el destino y las distancias acumuladas desde Madrid siguen siendo provisionales o desconocidos.
+> El dataset outbound actual contiene diez áreas contrastadas a partir de las validaciones documentadas en las issues #1 y #3. Solo se marcan como confirmados los servicios respaldados por esas fuentes; el resto permanece como `unknown`. Algunos accesos, el destino y las distancias acumuladas desde Madrid siguen siendo provisionales o desconocidos.
 
 ## Stack y arquitectura
 

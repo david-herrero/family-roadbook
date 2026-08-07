@@ -209,8 +209,47 @@
       ]
     },
     {
-      "id": "briviesca-norte",
+      "id": "quintanapalla-norte",
       "routeOrder": 6,
+      "name": "Área de Servicio Quintanapalla Airea",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-1", "kilometerPost": 12, "status": "confirmed" },
+      "direction": { "label": "sentido Vitoria / Bilbao (margen norte)", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": { "lat": 42.40341263, "lng": -3.54918084 },
+        "mapQuery": "Área de Servicio Quintanapalla Airea AP-1 km 12 dirección Bilbao",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=42.40341263,-3.54918084",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Parada prioritaria en el margen norte, sentido Vitoria / Bilbao. La estación Repsol abre 24 h; Airea indica restauración de 07:30 a 23:00. No confundir con La Pausa, situada en dirección sur."],
+      "sources": [
+        { "label": "Areas — Quintanapalla Airea, dirección Bilbao", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-MARCABLANCA-1" },
+        { "label": "Repsol — CRED Quintanapalla 1, margen derecho", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/burgos/quintanapalla/au-ap-1-dcha-12/" },
+        { "label": "BOE — Área de Servicio Quintanapalla, PK 12", "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2019-4555" }
+      ]
+    },
+    {
+      "id": "briviesca-norte",
+      "routeOrder": 7,
       "name": "Área de Servicio Briviesca Norte",
       "kind": "stop-area",
       "dataStatus": "verified",
@@ -248,7 +287,7 @@
     },
     {
       "id": "shell-rivabellosa",
-      "routeOrder": 7,
+      "routeOrder": 8,
       "name": "Shell Rivabellosa",
       "kind": "stop-area",
       "dataStatus": "provisional",
@@ -285,7 +324,7 @@
     },
     {
       "id": "altube-bilbao",
-      "routeOrder": 8,
+      "routeOrder": 9,
       "name": "Área de Servicio Altube — La Pausa",
       "kind": "stop-area",
       "dataStatus": "verified",
@@ -323,7 +362,7 @@
     },
     {
       "id": "ugaldebieta-santander",
-      "routeOrder": 9,
+      "routeOrder": 10,
       "name": "Área de Servicio Ugaldebieta — La Pausa",
       "kind": "stop-area",
       "dataStatus": "verified",
