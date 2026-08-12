@@ -1,0 +1,439 @@
+{
+  "schemaVersion": 1,
+  "id": "castro-madrid-2026",
+  "title": "Castro Urdiales → Madrid",
+  "date": "2026-08-13",
+  "origin": "Castro Urdiales",
+  "destination": {
+    "name": "Madrid",
+    "city": "Madrid",
+    "label": "Madrid",
+    "dataStatus": "verified",
+    "location": {
+      "coordinates": null,
+      "mapQuery": "Madrid",
+      "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Madrid",
+      "status": "confirmed"
+    }
+  },
+  "corridor": ["A-8", "AP-68", "N-622", "AP-1", "A-1"],
+  "dataStatus": "mixed",
+  "dataNotice": "Las paradas y servicios confirmados se han contrastado con las fuentes enlazadas. Algunos accesos y sentidos siguen marcados como provisionales; todas las distancias acumuladas permanecen desconocidas.",
+  "estimates": {
+    "distanceKm": null,
+    "durationMinutes": null,
+    "status": "unknown"
+  },
+  "stops": [
+    {
+      "id": "ugaldebieta-bilbao",
+      "routeOrder": 1,
+      "name": "Cafestore Ugaldebieta",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-8", "kilometerPost": 131, "status": "confirmed" },
+      "direction": { "label": "sentido Bilbao", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Cafestore Ugaldebieta A-8 PK 131 dirección Bilbao",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Cafestore%20Ugaldebieta%20A-8%20PK%20131%20direcci%C3%B3n%20Bilbao",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": true,
+        "playArea": "unknown",
+        "open24Hours": true,
+        "accessibility": true
+      },
+      "notes": ["Parada 24 h en dirección Bilbao. El establecimiento y el lado están confirmados por Cafestore; comprueba el destino exacto antes de abrir la navegación."],
+      "sources": [
+        { "label": "Cafestore — Ugaldebieta, dirección Bilbao", "url": "https://cafestore.es/-/cafestore-ugaldebieta" }
+      ]
+    },
+    {
+      "id": "altube-zaragoza",
+      "routeOrder": 2,
+      "name": "Área de Servicio Altube — La Pausa",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-68", "kilometerPost": 36, "status": "confirmed" },
+      "direction": { "label": "sentido Zaragoza", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": { "lat": 42.96686244, "lng": -2.86952046 },
+        "mapQuery": "Área de Servicio Altube La Pausa dirección Zaragoza",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=42.96686244,-2.86952046",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": true,
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["La cafetería del hotel está disponible 24 h, pero el restaurante La Pausa abre aproximadamente de 08:00 a 23:00; por eso la parada completa no se marca como 24 h."],
+      "sources": [
+        { "label": "Areas — Altube La Pausa, dirección Zaragoza", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-ALTUBE-LAPAUSA-Z" },
+        { "label": "AS Hoteles — Altube", "url": "https://www.areashoteles.com/hotel/as-hotel-altube/" }
+      ]
+    },
+    {
+      "id": "desfiladero-burgos",
+      "routeOrder": 3,
+      "name": "Área de Servicio Desfiladero",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-1", "kilometerPost": 63.5, "status": "confirmed" },
+      "direction": { "label": "sentido Burgos", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Área de Servicio Desfiladero AP-1 km 63.5 dirección Burgos",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Desfiladero%20AP-1%20km%2063.5%20direcci%C3%B3n%20Burgos",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": true,
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Restauración aproximadamente de 07:00 a 23:00. El establecimiento y el sentido están confirmados; las coordenadas exactas del acceso siguen pendientes."],
+      "sources": [
+        { "label": "Areas — Desfiladero, dirección Burgos", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-DESFILADERO-LAPAUSA-S" }
+      ]
+    },
+    {
+      "id": "briviesca-sur",
+      "routeOrder": 4,
+      "name": "Área de Servicio Briviesca Sur",
+      "kind": "stop-area",
+      "dataStatus": "provisional",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-1", "kilometerPost": 36, "status": "confirmed" },
+      "direction": { "label": "sentido Burgos", "status": "confirmed" },
+      "category": "good",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Área de Servicio Briviesca Sur AP-1 km 36 dirección Burgos",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Briviesca%20Sur%20AP-1%20km%2036%20direcci%C3%B3n%20Burgos",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": "unknown",
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": true,
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["PK 36 tomado de la ficha institucional de Turismo de Castilla y León. Areas confirma el sentido Burgos y los servicios, pero muestra km 12, incompatible con la ubicación de Briviesca; coordenadas y acceso exactos quedan provisionales."],
+      "sources": [
+        { "label": "Turismo Castilla y León — Briviesca Dirección Sur, PK 36", "url": "https://www.turismocastillayleon.com/es/servicios/comer/restaurantes/area-servicio-briviesca-direccion-sur" },
+        { "label": "Areas — Briviesca Sur (ficha con PK discrepante)", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-BRIVIESCA-COMO-S" }
+      ]
+    },
+    {
+      "id": "quintanapalla-burgos",
+      "routeOrder": 5,
+      "name": "Quintanapalla — La Pausa / Repsol",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-1", "kilometerPost": 12, "status": "confirmed" },
+      "direction": { "label": "sentido Burgos (margen izquierdo)", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": { "lat": 42.4052321, "lng": -3.54946515 },
+        "mapQuery": "Quintanapalla La Pausa Repsol CRED Quintanapalla 2",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=42.4052321,-3.54946515",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Usar el margen izquierdo, dirección Burgos. Repsol abre 24 h y La Pausa aproximadamente de 08:30 a 23:00; la parada completa no se marca como 24 h. No confundir con Airea dirección Bilbao de la ida."],
+      "sources": [
+        { "label": "Areas — Quintanapalla La Pausa, dirección Burgos", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-MARCABLANCA-3" },
+        { "label": "Repsol — CRED Quintanapalla 2, margen izquierdo", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/burgos/quintanapalla/au-ap-1-izda-12/" }
+      ]
+    },
+    {
+      "id": "villagonzalo-madrid",
+      "routeOrder": 6,
+      "name": "E.S. Villarce La Varga",
+      "kind": "stop-area",
+      "dataStatus": "provisional",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-1", "kilometerPost": 232.7, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "provisional" },
+      "category": "good",
+      "location": {
+        "coordinates": { "lat": 42.28993913, "lng": -3.70480818 },
+        "mapQuery": "E.S. Villarce La Varga Repsol Villagonzalo Pedernales",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=42.28993913,-3.70480818",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Estación abierta aproximadamente de 07:00 a 23:00. Repsol confirma el margen izquierdo y las coordenadas; falta confirmar que el acceso exacto corresponde al sentido Madrid."],
+      "sources": [
+        { "label": "Repsol — E.S. Villarce La Varga, A-1 PK 232,7 margen izquierdo", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/burgos/villagonzalo-pederna/cr-a-1-2327-margen-izq/" }
+      ]
+    },
+    {
+      "id": "ribera-duero-madrid",
+      "routeOrder": 7,
+      "name": "Área de Servicio Ribera del Duero",
+      "kind": "stop-area",
+      "dataStatus": "provisional",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-1", "kilometerPost": 189.9, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "provisional" },
+      "category": "good",
+      "location": {
+        "coordinates": { "lat": 41.929778, "lng": -3.763361 },
+        "mapQuery": "Área de Servicio Ribera del Duero Cilleruelo de Abajo",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=41.929778,-3.763361",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": "unknown",
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": true,
+        "shop": "unknown",
+        "parking": true,
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": true,
+        "playArea": "unknown",
+        "open24Hours": "unknown",
+        "accessibility": true
+      },
+      "notes": ["La ficha institucional confirma restauración, parking, accesibilidad y jardín-terraza en el PK 189,9. La dirección Madrid y el enlace a la instalación exacta quedan provisionales hasta confirmar de nuevo el margen."],
+      "sources": [
+        { "label": "Turismo Castilla y León — Área de Servicio Ribera del Duero", "url": "https://www.turismocastillayleon.com/es/servicios/comer/restaurantes/area-servicio-ribera-duero" }
+      ]
+    },
+    {
+      "id": "montermoso-madrid",
+      "routeOrder": 8,
+      "name": "Hotel Montermoso",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-1", "kilometerPost": null, "status": "unknown" },
+      "direction": { "label": "salida 164, sentido Madrid", "status": "confirmed" },
+      "category": "good",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Hotel Montermoso Aranda de Duero",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Hotel%20Montermoso%20Aranda%20de%20Duero",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": "unknown",
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": true,
+        "shop": "unknown",
+        "parking": true,
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": true,
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": "unknown"
+      },
+      "notes": ["Acceso directo por la salida 164 sentido Madrid. La salida no se reutiliza como PK. La recepción 24 h del hotel no implica restauración disponible 24 h."],
+      "sources": [
+        { "label": "Ruta del Vino Ribera del Duero — Hotel Montermoso", "url": "https://rutadelvinoriberadelduero.es/directories/hotel-montermoso/" }
+      ]
+    },
+    {
+      "id": "grajera-madrid",
+      "routeOrder": 9,
+      "name": "E.S. Repsol Grajera",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-1", "kilometerPost": 121.1, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "confirmed" },
+      "category": "fallback",
+      "location": {
+        "coordinates": { "lat": 41.36791912, "lng": -3.64226546 },
+        "mapQuery": "E.S. Repsol Grajera A-1 PK 121,1",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=41.36791912,-3.64226546",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": "unknown",
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": true,
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": "unknown"
+      },
+      "notes": ["Fallback con combustible, tienda y parking confirmado, abierto aproximadamente de 07:00 a 23:00. El resto de servicios permanece sin verificar."],
+      "sources": [
+        { "label": "Repsol — Grajera, A-1 PK 121,1", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/segovia/grajera/cr-a-1-1211/" }
+      ]
+    },
+    {
+      "id": "lozoyuela-shell-madrid",
+      "routeOrder": 10,
+      "name": "Shell Lozoyuela",
+      "kind": "stop-area",
+      "dataStatus": "provisional",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "N-I / A-1", "kilometerPost": 64.65, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "provisional" },
+      "category": "fallback",
+      "location": {
+        "coordinates": { "lat": 40.90665, "lng": -3.610159 },
+        "mapQuery": "Shell Lozoyuela N-I PK 64,650",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=40.90665,-3.610159",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": "unknown",
+        "restaurant": "unknown",
+        "shop": "unknown",
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": "unknown"
+      },
+      "notes": ["Fallback deliberado entre Grajera y El Molar. Shell confirma combustible, coordenadas y horario aproximado 06:00–23:59; el margen/sentido exacto sigue provisional."],
+      "sources": [
+        { "label": "Shell — Lozoyuela", "url": "https://find.shell.com/es/fuel/10128872-lozoyuela" }
+      ]
+    },
+    {
+      "id": "el-molar-madrid",
+      "routeOrder": 11,
+      "name": "E.S. Repsol El Molar",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-1", "kilometerPost": 41, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "confirmed" },
+      "category": "good",
+      "location": {
+        "coordinates": { "lat": 40.71654865, "lng": -3.57883752 },
+        "mapQuery": "E.S. Repsol El Molar A-1 PK 41",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=40.71654865,-3.57883752",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Última opción contrastada antes de Madrid, abierta aproximadamente de 07:00 a 23:00. Repsol confirma cafetería/bar, no restaurante como servicio separado."],
+      "sources": [
+        { "label": "Repsol — El Molar, A-1 PK 41", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/madrid/molar-el/a-1-41/" }
+      ]
+    }
+  ]
+}

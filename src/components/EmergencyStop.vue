@@ -3,7 +3,8 @@ import StopCard from './StopCard.vue'
 
 defineProps({
   open: { type: Boolean, required: true },
-  stops: { type: Array, required: true }
+  stops: { type: Array, required: true },
+  origin: { type: String, required: true }
 })
 
 defineEmits(['open', 'close', 'mark-passed'])
@@ -38,6 +39,7 @@ defineEmits(['open', 'close', 'mark-passed'])
           v-for="(stop, index) in stops"
           :key="stop.id"
           :stop="stop"
+          :origin="origin"
           :highlighted="index === 0"
           compact
           @mark-passed="$emit('mark-passed', $event)"

@@ -61,6 +61,22 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
 .trip-header h1 { max-width: 700px; margin: 1.25rem 0 0.35rem; font-size: clamp(2rem, 8vw, 3.7rem); line-height: 0.98; }
 .destination { margin: 0 0 1.35rem; color: #dceae4; font-size: 1rem; }
 
+.trip-selector { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; margin-top: 1rem; }
+.trip-selector__button {
+  min-height: 52px;
+  padding: 0.5rem 0.7rem;
+  border: 2px solid #7ea096;
+  border-radius: 0.75rem;
+  color: #e8f4f0;
+  background: #214b40;
+  cursor: pointer;
+  font-weight: 850;
+}
+.trip-selector__button span, .trip-selector__button small { display: block; }
+.trip-selector__button small { margin-top: 0.15rem; color: #bfd4cd; font-size: 0.7rem; }
+.trip-selector__button--active { color: #173f35; border-color: #f3b43f; background: #fff7df; }
+.trip-selector__button--active small { color: #5c4513; }
+
 .trip-meta, .stop-facts { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin: 0; }
 .trip-meta div { padding: 0.75rem; border: 1px solid #497166; border-radius: 0.75rem; background: #214b40; }
 dt { margin-bottom: 0.15rem; color: #678078; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }

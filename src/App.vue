@@ -3,34 +3,75 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import EmergencyStop from './components/EmergencyStop.vue'
 import RouteProgress from './components/RouteProgress.vue'
 import StopCard from './components/StopCard.vue'
-import trip from './data/trips/madrid-castro-2026.json'
+import returnTrip from './data/trips/castro-madrid-2026.json'
+import outboundTrip from './data/trips/madrid-castro-2026.json'
 import {
   clearPassedStops,
+  createTripViewState,
   getUpcomingStops,
-  loadPassedStops,
+  selectDefaultTrip,
   savePassedStops
 } from './utils/roadbook.js'
 
+const trips = [outboundTrip, returnTrip]
+const tripOptions = [
+  { label: 'Ida', trip: outboundTrip },
+  { label: 'Vuelta', trip: returnTrip }
+]
+const initialTrip = selectDefaultTrip(trips) ?? trips[0]
+
+const activeTripId = ref(initialTrip.id)
 const passedIds = ref([])
 const emergencyOpen = ref(false)
 const isOffline = ref(false)
 
-const validStopIds = trip.stops.map((stop) => stop.id)
-const upcomingStops = computed(() => getUpcomingStops(trip.stops, passedIds.value, 3, trip.date))
+const activeTrip = computed(() => trips.find((trip) => trip.id === activeTripId.value) ?? initialTrip)
+const upcomingStops = computed(() =>
+  getUpcomingStops(activeTrip.value.stops, passedIds.value, 3, activeTrip.value.date)
+)
 const passedCount = computed(() => passedIds.value.length)
-const progressPercent = computed(() => Math.round((passedCount.value / trip.stops.length) * 100))
+const progressPercent = computed(() =>
+  Math.round((passedCount.value / activeTrip.value.stops.length) * 100)
+)
 const dataStatusLabel = computed(() => {
-  if (trip.dataStatus === 'verified') return 'Paradas verificadas'
-  if (trip.dataStatus === 'mixed') return 'Datos contrastados y provisionales'
+  if (activeTrip.value.dataStatus === 'verified') return 'Paradas verificadas'
+  if (activeTrip.value.dataStatus === 'mixed') return 'Datos contrastados y provisionales'
   return 'Datos provisionales'
 })
 
-const formattedDate = new Intl.DateTimeFormat('es-ES', {
+const longDateFormatter = new Intl.DateTimeFormat('es-ES', {
   day: 'numeric',
   month: 'long',
   year: 'numeric',
   timeZone: 'UTC'
-}).format(new Date(`${trip.date}T00:00:00Z`))
+})
+const shortDateFormatter = new Intl.DateTimeFormat('es-ES', {
+  day: 'numeric',
+  month: 'short',
+  timeZone: 'UTC'
+})
+const formattedDate = computed(() =>
+  longDateFormatter.format(new Date(`${activeTrip.value.date}T00:00:00Z`))
+)
+
+function formatTripOptionDate(date) {
+  return shortDateFormatter.format(new Date(`${date}T00:00:00Z`)).replace('.', '')
+}
+
+function applyTripState(trip) {
+  const state = createTripViewState(window.localStorage, trip)
+  passedIds.value = state.passedIds
+  emergencyOpen.value = state.emergencyOpen
+}
+
+function selectTrip(tripId) {
+  if (tripId === activeTripId.value) return
+  const nextTrip = trips.find((trip) => trip.id === tripId)
+  if (!nextTrip) return
+
+  activeTripId.value = nextTrip.id
+  applyTripState(nextTrip)
+}
 
 function updateConnectionStatus() {
   isOffline.value = !navigator.onLine
@@ -39,18 +80,18 @@ function updateConnectionStatus() {
 function markPassed(stopId) {
   if (passedIds.value.includes(stopId)) return
   passedIds.value = [...passedIds.value, stopId]
-  savePassedStops(window.localStorage, trip.id, passedIds.value)
+  savePassedStops(window.localStorage, activeTrip.value.id, passedIds.value)
 }
 
 function resetTrip() {
   if (!window.confirm('¿Reiniciar el viaje y borrar todas las paradas superadas?')) return
   passedIds.value = []
   emergencyOpen.value = false
-  clearPassedStops(window.localStorage, trip.id)
+  clearPassedStops(window.localStorage, activeTrip.value.id)
 }
 
 onMounted(() => {
-  passedIds.value = loadPassedStops(window.localStorage, trip.id, validStopIds)
+  applyTripState(activeTrip.value)
   updateConnectionStatus()
   window.addEventListener('online', updateConnectionStatus)
   window.addEventListener('offline', updateConnectionStatus)
@@ -73,19 +114,35 @@ onBeforeUnmount(() => {
         <span class="trip-label">Roadbook familiar</span>
         <span class="status-pill">{{ dataStatusLabel }}</span>
       </div>
-      <h1>{{ trip.title }}</h1>
-      <p class="destination">Destino: <strong>{{ trip.destination.label }}</strong></p>
+
+      <div class="trip-selector" role="group" aria-label="Seleccionar viaje">
+        <button
+          v-for="option in tripOptions"
+          :key="option.trip.id"
+          class="trip-selector__button"
+          :class="{ 'trip-selector__button--active': option.trip.id === activeTrip.id }"
+          type="button"
+          :aria-pressed="option.trip.id === activeTrip.id"
+          @click="selectTrip(option.trip.id)"
+        >
+          <span>{{ option.label }} · {{ formatTripOptionDate(option.trip.date) }}</span>
+          <small>{{ option.trip.id === activeTrip.id ? '✓ Activo' : 'Seleccionar' }}</small>
+        </button>
+      </div>
+
+      <h1>{{ activeTrip.title }}</h1>
+      <p class="destination">Destino: <strong>{{ activeTrip.destination.label }}</strong></p>
 
       <dl class="trip-meta">
         <div><dt>Fecha</dt><dd>{{ formattedDate }}</dd></div>
-        <div><dt>Corredor previsto</dt><dd>{{ trip.corridor.join(' → ') }}</dd></div>
+        <div><dt>Corredor previsto</dt><dd>{{ activeTrip.corridor.join(' → ') }}</dd></div>
         <div><dt>Distancia orientativa</dt><dd>Por confirmar</dd></div>
         <div><dt>Tiempo orientativo</dt><dd>Por confirmar · consulta Maps</dd></div>
       </dl>
 
       <div class="progress-summary">
         <div>
-          <strong>{{ passedCount }} de {{ trip.stops.length }}</strong>
+          <strong>{{ passedCount }} de {{ activeTrip.stops.length }}</strong>
           <span>puntos superados</span>
         </div>
         <div
@@ -93,7 +150,7 @@ onBeforeUnmount(() => {
           role="progressbar"
           :aria-valuenow="passedCount"
           aria-valuemin="0"
-          :aria-valuemax="trip.stops.length"
+          :aria-valuemax="activeTrip.stops.length"
           :aria-label="`${progressPercent}% del roadbook completado`"
         >
           <span :style="{ width: `${progressPercent}%` }"></span>
@@ -106,12 +163,13 @@ onBeforeUnmount(() => {
 
     <main>
       <aside class="data-warning" aria-label="Aviso sobre los datos">
-        <strong>Importante:</strong> {{ trip.dataNotice }} Confirma siempre el tráfico y la ruta real en Google Maps antes de desviarte.
+        <strong>Importante:</strong> {{ activeTrip.dataNotice }} Confirma siempre el tráfico y la ruta real en Google Maps antes de desviarte.
       </aside>
 
       <EmergencyStop
         :open="emergencyOpen"
         :stops="upcomingStops"
+        :origin="activeTrip.origin"
         @open="emergencyOpen = true"
         @close="emergencyOpen = false"
         @mark-passed="markPassed"
@@ -133,6 +191,7 @@ onBeforeUnmount(() => {
             v-for="(stop, index) in upcomingStops"
             :key="stop.id"
             :stop="stop"
+            :origin="activeTrip.origin"
             :highlighted="index === 0"
             @mark-passed="markPassed"
           />
@@ -143,20 +202,21 @@ onBeforeUnmount(() => {
       <section class="content-section route-section" aria-labelledby="route-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">De Madrid a Castro Urdiales</p>
+            <p class="eyebrow">De {{ activeTrip.origin }} a {{ activeTrip.destination.name }}</p>
             <h2 id="route-title">Ruta completa</h2>
           </div>
         </div>
-        <RouteProgress :stops="trip.stops" :passed-ids="passedIds" @mark-passed="markPassed" />
+        <RouteProgress :stops="activeTrip.stops" :passed-ids="passedIds" @mark-passed="markPassed" />
       </section>
 
-      <details class="all-stops">
+      <details :key="activeTrip.id" class="all-stops">
         <summary>Ver fichas de todas las paradas</summary>
         <div class="card-list">
           <StopCard
-            v-for="stop in trip.stops"
+            v-for="stop in activeTrip.stops"
             :key="stop.id"
             :stop="stop"
+            :origin="activeTrip.origin"
             :passed="passedIds.includes(stop.id)"
             @mark-passed="markPassed"
           />
