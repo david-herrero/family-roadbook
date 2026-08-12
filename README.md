@@ -1,15 +1,16 @@
 # Family Roadbook
 
-PWA mobile-first para consultar un roadbook familiar de carretera. La V1 cubre el corredor Madrid → Castro Urdiales del 10 de agosto de 2026 y complementa a Google Maps: muestra las próximas opciones de parada, pero no calcula rutas, tráfico ni navegación.
+PWA mobile-first para consultar un roadbook familiar de carretera. Incluye la ida Madrid → Castro Urdiales del 10 de agosto de 2026 y la vuelta Castro Urdiales → Madrid del 13 de agosto de 2026. Complementa a Google Maps: muestra las próximas opciones de parada, pero no calcula rutas, tráfico ni navegación.
 
 > [!WARNING]
-> El dataset outbound actual contiene diez áreas contrastadas a partir de las validaciones documentadas en las issues #1 y #3. Solo se marcan como confirmados los servicios respaldados por esas fuentes; el resto permanece como `unknown`. Algunos accesos, el destino y las distancias acumuladas desde Madrid siguen siendo provisionales o desconocidos.
+> El dataset de ida conserva sus diez áreas sin cambios. El de vuelta contiene once opciones contrastadas con las fuentes indicadas en la issue #7. Solo se marcan como confirmados los servicios respaldados por esas fuentes; el resto permanece como `unknown` o provisional. Todas las distancias acumuladas siguen siendo desconocidas. En Briviesca se usa el PK 36 de la ficha institucional; la ubicación permanece provisional porque la ficha de Areas muestra el PK 12 discrepante.
 
 ## Stack y arquitectura
 
 - Vue 3 + Vite + JavaScript.
 - Una sola vista, sin router, backend, autenticación ni gestor de estado.
-- Datos estáticos en `src/data/trips/madrid-castro-2026.json`.
+- Datos estáticos en `src/data/trips/madrid-castro-2026.json` y `src/data/trips/castro-madrid-2026.json`.
+- Selector accesible de ida/vuelta; por defecto elige el viaje del día local, el futuro más cercano o, si todos han pasado, el último.
 - Progreso independiente por viaje guardado en `localStorage`.
 - Service worker y manifest generados con `vite-plugin-pwa`.
 - Tests de la lógica pura con el runner integrado de Node.js.
@@ -35,14 +36,14 @@ npm run build
 npm run preview
 ```
 
-El build de producción se escribe en `dist/`. La PWA precachea el shell, los iconos y los assets generados. Como el JSON se importa en el bundle, el roadbook principal queda incluido en el precache y vuelve a abrir después de una primera carga online. Google Maps es externo y puede requerir conexión.
+El build de producción se escribe en `dist/`. La PWA precachea el shell, los iconos y los assets generados. Como ambos JSON se importan en el bundle, los dos roadbooks quedan incluidos en el precache y vuelven a abrir después de una primera carga online. Google Maps es externo y puede requerir conexión.
 
 Para comprobar el modo offline manualmente:
 
 1. Ejecutar el build y `npm run preview`.
 2. Abrir la app una vez con conexión y esperar al registro del service worker.
 3. Activar el modo offline en las herramientas del navegador y recargar.
-4. Confirmar que el roadbook aparece y que se muestra el indicador discreto “Sin conexión”.
+4. Confirmar que se pueden abrir y alternar los dos roadbooks y que se muestra el indicador discreto “Sin conexión”.
 
 ## Despliegue en Vercel
 

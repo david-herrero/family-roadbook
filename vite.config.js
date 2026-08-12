@@ -9,7 +9,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/*.svg'],
       manifest: {
-        name: 'Roadbook familiar · Madrid a Castro Urdiales',
+        name: 'Roadbook familiar · Ida y vuelta',
         short_name: 'Roadbook',
         description: 'Próximas paradas familiares de un viaje, disponibles sin conexión.',
         lang: 'es',

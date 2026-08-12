@@ -3,6 +3,7 @@ import { computed } from 'vue'
 
 const props = defineProps({
   stop: { type: Object, required: true },
+  origin: { type: String, required: true },
   passed: { type: Boolean, default: false },
   highlighted: { type: Boolean, default: false },
   compact: { type: Boolean, default: false }
@@ -96,7 +97,7 @@ function distanceLabel(distance) {
         <dd>{{ stop.direction.label }} <span v-if="stop.direction.status !== 'confirmed'">(por verificar)</span></dd>
       </div>
       <div>
-        <dt>Desde Madrid</dt>
+        <dt>Desde {{ origin }}</dt>
         <dd>{{ distanceLabel(stop.kmFromOrigin) }}</dd>
       </div>
       <div>
