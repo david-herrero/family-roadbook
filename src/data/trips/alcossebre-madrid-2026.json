@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "id": "alcossebre-madrid-2026",
+  "title": "Alcossebre → Madrid",
+  "date": "2026-08-21",
+  "origin": "Alcossebre",
+  "destination": {
+    "name": "Madrid",
+    "city": "Madrid",
+    "label": "Madrid",
+    "dataStatus": "verified",
+    "location": {
+      "coordinates": null,
+      "mapQuery": "Madrid",
+      "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Madrid",
+      "status": "confirmed"
+    }
+  },
+  "corridor": ["N-340", "AP-7", "A-7", "A-3"],
+  "dataStatus": "mixed",
+  "dataNotice": "Corredor orientativo: comprueba Google Maps y el tráfico real antes de salir. Las paradas, sentidos y horarios confirmados se han contrastado con las fuentes enlazadas; los accesos sin evidencia inequívoca siguen provisionales y todas las distancias acumuladas permanecen desconocidas.",
+  "estimates": {
+    "distanceKm": null,
+    "durationMinutes": null,
+    "status": "unknown"
+  },
+  "stops": [
+    {
+      "id": "la-plana-alicante",
+      "routeOrder": 1,
+      "name": "Galp La Plana — dirección Alicante",
+      "kind": "stop-area",
+      "dataStatus": "provisional",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-7", "kilometerPost": null, "status": "unknown" },
+      "direction": { "label": "dirección Alicante", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Galp E1283 La Plana dirección Alicante",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Galp%20E1283%20La%20Plana%20direcci%C3%B3n%20Alicante",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": "unknown",
+        "restaurant": "unknown",
+        "shop": "unknown",
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": true,
+        "accessibility": "unknown"
+      },
+      "notes": ["El localizador Galp confirma E1283 La Plana — dirección Alicante y apertura 24 h. Al no publicar en la ficha actual PK ni coordenadas inequívocas, carretera y ubicación quedan sin confirmar."],
+      "sources": [
+        { "label": "Galp — localizador de estaciones (E1283)", "url": "https://mundogalp.galp.com/KM_ServiceStation_FE/ServiceStationNew.aspx" }
+      ]
+    },
+    {
+      "id": "sagunto-valencia",
+      "routeOrder": 2,
+      "name": "Área de Servicio Sagunto — dirección Valencia",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-7", "kilometerPost": 478, "status": "confirmed" },
+      "direction": { "label": "dirección Valencia", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Área de Servicio Sagunto AP-7 PK 478 dirección Valencia",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Sagunto%20AP-7%20PK%20478%20direcci%C3%B3n%20Valencia",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": "unknown",
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": true,
+        "shop": "unknown",
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": "unknown",
+        "accessibility": "unknown"
+      },
+      "notes": ["Ficha Areas específica del lado Valencia, PK 478, con cafetería/restaurante y promoción infantil. La ficha actual no publica horario ni coordenadas; ambos datos quedan sin inferir."],
+      "sources": [
+        { "label": "Areas — Sagunto dirección Valencia", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-SAGUNTO-S" }
+      ]
+    },
+    {
+      "id": "la-senyera-ii-madrid",
+      "routeOrder": 3,
+      "name": "Moeve La Senyera II",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 345, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Moeve La Senyera II A-3 PK 345 Quart de Poblet",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Moeve%20La%20Senyera%20II%20A-3%20PK%20345%20Quart%20de%20Poblet",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": "unknown"
+      },
+      "notes": ["Moeve identifica La Senyera II para dirección Madrid. La atención publicada es 05:00–23:00; aunque la ficha menciona servicio 24 h, no se extiende ese dato a tienda o cafetería."],
+      "sources": [
+        { "label": "Moeve — La Senyera II", "url": "https://www.moeve.es/es/cerca-de-ti/gasolineras/valencia/cuart-de-poblet-la-senyera-ii" },
+        { "label": "Moeve — paradas A-3 dirección Madrid", "url": "https://www.moeve.es/es/blog/restaurantes-a3-direccion-madrid" }
+      ]
+    },
+    {
+      "id": "bunol-madrid",
+      "routeOrder": 4,
+      "name": "E.S. ALZ Buñol",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 322, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "confirmed" },
+      "category": "good",
+      "location": {
+        "coordinates": { "lat": 39.44497727, "lng": -0.75520427 },
+        "mapQuery": "E.S. ALZ Buñol A-3 PK 322 margen izquierdo",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=39.44497727,-0.75520427",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": true,
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Repsol confirma PK 322 margen izquierdo, 06:00–22:00, restauración, aparcamiento, descanso, tienda, aseos accesibles, cambiador y área de picnic."],
+      "sources": [
+        { "label": "Repsol — E.S. ALZ Buñol", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/valencia/bunol/at-a-3-322/" }
+      ]
+    },
+    {
+      "id": "rebollar-madrid",
+      "routeOrder": 5,
+      "name": "CRED Rebollar",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 297, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "confirmed" },
+      "category": "good",
+      "location": {
+        "coordinates": { "lat": 39.47202349, "lng": -1.01055807 },
+        "mapQuery": "CRED Rebollar A-3 PK 297 margen izquierdo",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=39.47202349,-1.01055807",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": "unknown",
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Repsol confirma PK 297 margen izquierdo. Horario: lunes-sábado 06:00–22:00 y domingo/festivos 07:00–22:00; no se infiere cafetería del hotel publicado."],
+      "sources": [
+        { "label": "Repsol — CRED Rebollar", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/valencia/requena/at-a-3-297/" }
+      ]
+    },
+    {
+      "id": "castillejo-torreta-madrid",
+      "routeOrder": 6,
+      "name": "Área La Torreta — Castillejo de Iniesta",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 225, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": { "lat": 39.5194772, "lng": -1.75257465 },
+        "mapQuery": "Repsol Área La Torreta A-3 PK 225 Castillejo de Iniesta",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=39.5194772,-1.75257465",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": true,
+        "accessibility": true
+      },
+      "notes": ["Repsol confirma la instalación del PK 225 margen izquierdo, abierta 24 h, con autoservicio/restaurante, cafetería, aparcamiento, descanso, tienda y aseos accesibles."],
+      "sources": [
+        { "label": "Repsol — Área La Torreta, A-3 PK 225", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/cuenca/castillejo-de-iniesta/cr-a-3-225/" }
+      ]
+    },
+    {
+      "id": "garcimunoz-2-madrid",
+      "routeOrder": 7,
+      "name": "Moeve GARCIMUÑOZ-2",
+      "kind": "stop-area",
+      "dataStatus": "provisional",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 162.1, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid", "status": "provisional" },
+      "category": "good",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Moeve GARCIMUÑOZ-2 A-3 PK 162,1 Castillo de Garcimuñoz",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Moeve%20GARCIMU%C3%91OZ-2%20A-3%20PK%20162%2C1%20Castillo%20de%20Garcimu%C3%B1oz",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": "unknown"
+      },
+      "notes": ["Alternativa elegida para cubrir el tramo PK 225–118. Moeve confirma GARCIMUÑOZ-2, PK 162,1, 06:00–22:00, tienda y R'spiro, pero no publica margen/sentido ni coordenadas: acceso provisional."],
+      "sources": [
+        { "label": "Moeve — GARCIMUÑOZ-2", "url": "https://www.moeve.es/es/cerca-de-ti/gasolineras/cuenca/castillo-de-garcimunoz-garcimunoz-i" }
+      ]
+    },
+    {
+      "id": "saelices-madrid",
+      "routeOrder": 8,
+      "name": "E.S. ARBA SA — Saelices",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 118, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "confirmed" },
+      "category": "fallback",
+      "location": {
+        "coordinates": { "lat": 39.91368978, "lng": -2.74461487 },
+        "mapQuery": "E.S. ARBA SA Saelices A-3 PK 118 I",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=39.91368978,-2.74461487",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": "unknown",
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": true,
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Ficha Repsol específica del PK 118 margen izquierdo, abierta de 07:00 a 23:00. No confundir con ARBA SA M.D. del PK 108 de la ida."],
+      "sources": [
+        { "label": "Repsol — E.S. ARBA SA, A-3 PK 118 I", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/cuenca/saelices/autovia-a-3-pk-118-i/" }
+      ]
+    },
+    {
+      "id": "belinchon-lapausa-madrid",
+      "routeOrder": 9,
+      "name": "Área de Servicio Belinchón — La Pausa",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 72, "status": "confirmed" },
+      "direction": { "label": "acceso ambas direcciones", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Área de Servicio Belinchón La Pausa A-3 PK 72",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Belinch%C3%B3n%20La%20Pausa%20A-3%20PK%2072",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": "unknown",
+        "restaurant": true,
+        "shop": true,
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Areas confirma acceso por ambos sentidos y horario especial de julio/agosto de 07:30 a 22:00. La promoción infantil no acredita tronas ni cambiador."],
+      "sources": [
+        { "label": "Areas — Belinchón La Pausa", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-BELINCHON-LAPAUSA" }
+      ]
+    },
+    {
+      "id": "perales-tajuna-madrid",
+      "routeOrder": 10,
+      "name": "E.S. Repsol Perales de Tajuña",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "N-3 / A-3", "kilometerPost": 39.2, "status": "confirmed" },
+      "direction": { "label": "sentido Madrid (margen izquierdo)", "status": "confirmed" },
+      "category": "fallback",
+      "location": {
+        "coordinates": { "lat": 40.22971326, "lng": -3.34751912 },
+        "mapQuery": "Repsol Perales de Tajuña N-3 PK 39,2 margen izquierdo",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=40.22971326,-3.34751912",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": true,
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Última contingencia antes de Madrid. Repsol confirma PK 39,2 margen izquierdo, 06:00–22:00, cafetería, aparcamiento, descanso, tienda y aseos accesibles."],
+      "sources": [
+        { "label": "Repsol — Perales de Tajuña, N-3 PK 39,2", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/madrid/perales-de-tajuna/cr-n-3-392/" }
+      ]
+    }
+  ]
+}
