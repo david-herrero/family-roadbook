@@ -30,13 +30,18 @@ function memoryStorage() {
   }
 }
 
-test('catalog contains only the Castro collection and imports both existing trips once', () => {
-  assert.deepEqual(catalog.map((collection) => collection.id), ['castro-urdiales-2026-08'])
+test('catalog contains Castro and Alcossebre and imports every trip once', () => {
+  assert.deepEqual(catalog.map((collection) => collection.id), [
+    'castro-urdiales-2026-08',
+    'alcossebre-2026-08'
+  ])
 
   const entries = flattenCatalogTrips(catalog)
   assert.deepEqual(entries.map((entry) => entry.trip.id), [
     'madrid-castro-2026',
-    'castro-madrid-2026'
+    'castro-madrid-2026',
+    'madrid-alcossebre-2026',
+    'alcossebre-madrid-2026'
   ])
   assert.equal(new Set(entries.map((entry) => entry.trip.id)).size, entries.length)
 })
@@ -51,6 +56,8 @@ test('keeps both Castro datasets byte-for-byte equal to main at the start of iss
 test('finds a collection from any of its trips', () => {
   assert.equal(findCollectionForTrip(catalog, 'madrid-castro-2026').id, 'castro-urdiales-2026-08')
   assert.equal(findCollectionForTrip(catalog, 'castro-madrid-2026').id, 'castro-urdiales-2026-08')
+  assert.equal(findCollectionForTrip(catalog, 'madrid-alcossebre-2026').id, 'alcossebre-2026-08')
+  assert.equal(findCollectionForTrip(catalog, 'alcossebre-madrid-2026').id, 'alcossebre-2026-08')
   assert.equal(findCollectionForTrip(catalog, 'missing-trip'), null)
 })
 
@@ -60,32 +67,45 @@ test('automatic selection operates on every flattened catalog trip', () => {
   assert.equal(selectDefaultTrip(trips, '2026-08-10').id, 'madrid-castro-2026')
   assert.equal(selectDefaultTrip(trips, '2026-08-11').id, 'castro-madrid-2026')
   assert.equal(selectDefaultTrip(trips, '2026-08-13').id, 'castro-madrid-2026')
-  assert.equal(selectDefaultTrip(trips, '2026-08-14').id, 'castro-madrid-2026')
+  assert.equal(selectDefaultTrip(trips, '2026-08-14').id, 'madrid-alcossebre-2026')
+  assert.equal(selectDefaultTrip(trips, '2026-08-17').id, 'madrid-alcossebre-2026')
+  assert.equal(selectDefaultTrip(trips, '2026-08-18').id, 'alcossebre-madrid-2026')
+  assert.equal(selectDefaultTrip(trips, '2026-08-20').id, 'alcossebre-madrid-2026')
+  assert.equal(selectDefaultTrip(trips, '2026-08-21').id, 'alcossebre-madrid-2026')
+  assert.equal(selectDefaultTrip(trips, '2026-08-22').id, 'alcossebre-madrid-2026')
 })
 
-test('classifies a collection as upcoming while it has a future trip and previous afterwards', () => {
+test('classifies collections coherently before and after the Alcossebre trips', () => {
   assert.deepEqual(groupCatalogCollections(catalog, '2026-08-11').upcoming.map(({ id }) => id), [
-    'castro-urdiales-2026-08'
+    'castro-urdiales-2026-08',
+    'alcossebre-2026-08'
   ])
   assert.deepEqual(groupCatalogCollections(catalog, '2026-08-11').previous, [])
-  assert.deepEqual(groupCatalogCollections(catalog, '2026-08-13').upcoming, [])
+  assert.deepEqual(groupCatalogCollections(catalog, '2026-08-13').upcoming.map(({ id }) => id), [
+    'alcossebre-2026-08'
+  ])
   assert.deepEqual(groupCatalogCollections(catalog, '2026-08-13').previous.map(({ id }) => id), [
     'castro-urdiales-2026-08'
   ])
+  assert.deepEqual(groupCatalogCollections(catalog, '2026-08-22').upcoming, [])
+  assert.deepEqual(groupCatalogCollections(catalog, '2026-08-22').previous.map(({ id }) => id), [
+    'castro-urdiales-2026-08',
+    'alcossebre-2026-08'
+  ])
 })
 
-test('opening trips from the catalog keeps progress isolated and closes emergency on change', () => {
+test('opening every trip from the catalog keeps progress isolated and closes emergency on change', () => {
   const storage = memoryStorage()
-  const [outbound, returnTrip] = flattenCatalogTrips(catalog).map((entry) => entry.trip)
-  savePassedStops(storage, outbound.id, [outbound.stops[0].id])
-  savePassedStops(storage, returnTrip.id, [returnTrip.stops[0].id])
+  const trips = flattenCatalogTrips(catalog).map((entry) => entry.trip)
 
-  assert.deepEqual(createTripViewState(storage, outbound), {
-    passedIds: [outbound.stops[0].id],
-    emergencyOpen: false
-  })
-  assert.deepEqual(createTripViewState(storage, returnTrip), {
-    passedIds: [returnTrip.stops[0].id],
-    emergencyOpen: false
-  })
+  for (const trip of trips) {
+    savePassedStops(storage, trip.id, [trip.stops[0].id])
+  }
+
+  for (const trip of trips) {
+    assert.deepEqual(createTripViewState(storage, trip), {
+      passedIds: [trip.stops[0].id],
+      emergencyOpen: false
+    })
+  }
 })

@@ -1,0 +1,364 @@
+{
+  "schemaVersion": 1,
+  "id": "madrid-alcossebre-2026",
+  "title": "Madrid → Alcossebre",
+  "date": "2026-08-17",
+  "origin": "Madrid",
+  "destination": {
+    "name": "Hotel Servigroup Romana",
+    "city": "Alcossebre / Alcocéber",
+    "label": "Hotel Servigroup Romana, Playa Romana s/n, 12579 Alcossebre / Alcocéber, Castellón",
+    "dataStatus": "verified",
+    "location": {
+      "coordinates": null,
+      "mapQuery": "Hotel Servigroup Romana Playa Romana s/n 12579 Alcossebre",
+      "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Hotel%20Servigroup%20Romana%2C%20Playa%20Romana%20s%2Fn%2C%2012579%20Alcossebre",
+      "status": "confirmed"
+    }
+  },
+  "corridor": ["A-3", "A-7", "AP-7", "N-340"],
+  "dataStatus": "mixed",
+  "dataNotice": "Corredor orientativo: comprueba Google Maps y el tráfico real antes de salir. Las paradas, sentidos y horarios confirmados se han contrastado con las fuentes enlazadas; los accesos sin evidencia inequívoca siguen provisionales y todas las distancias acumuladas permanecen desconocidas.",
+  "estimates": {
+    "distanceKm": null,
+    "durationMinutes": null,
+    "status": "unknown"
+  },
+  "stops": [
+    {
+      "id": "belinchon-lapausa-valencia",
+      "routeOrder": 1,
+      "name": "Área de Servicio Belinchón — La Pausa",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 72, "status": "confirmed" },
+      "direction": { "label": "acceso ambas direcciones", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Área de Servicio Belinchón La Pausa A-3 PK 72",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Belinch%C3%B3n%20La%20Pausa%20A-3%20PK%2072",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": "unknown",
+        "restaurant": true,
+        "shop": true,
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Areas confirma acceso por ambos sentidos y horario especial de julio/agosto de 07:30 a 22:00. La promoción infantil no acredita tronas ni cambiador."],
+      "sources": [
+        { "label": "Areas — Belinchón La Pausa", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-BELINCHON-LAPAUSA" }
+      ]
+    },
+    {
+      "id": "saelices-valencia",
+      "routeOrder": 2,
+      "name": "E.S. ARBA SA M.D. — Saelices",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 108, "status": "confirmed" },
+      "direction": { "label": "sentido Valencia (margen derecho)", "status": "confirmed" },
+      "category": "fallback",
+      "location": {
+        "coordinates": { "lat": 39.9120954, "lng": -2.74369699 },
+        "mapQuery": "E.S. ARBA SA M.D. Saelices A-3 PK 108 D",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=39.9120954,-2.74369699",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": true,
+        "accessibility": true
+      },
+      "notes": ["Ficha Repsol específica del PK 108, margen derecho, abierta 24 horas. No confundir con ARBA SA del PK 118 margen izquierdo."],
+      "sources": [
+        { "label": "Repsol — E.S. ARBA SA M.D., A-3 PK 108 D", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/cuenca/saelices/autovia-a3-pk-108-d/" }
+      ]
+    },
+    {
+      "id": "honrubia-valencia",
+      "routeOrder": 3,
+      "name": "CRED Honrubia",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 166, "status": "confirmed" },
+      "direction": { "label": "sentido Valencia (margen derecho)", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": { "lat": 39.59732825, "lng": -2.28105577 },
+        "mapQuery": "CRED Honrubia A-3 PK 166 margen derecho",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=39.59732825,-2.28105577",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": true,
+        "accessibility": "unknown"
+      },
+      "notes": ["Repsol confirma PK 166, margen derecho, apertura 24 horas, restauración, cafetería, aparcamiento, descanso y tienda. El resto queda sin verificar."],
+      "sources": [
+        { "label": "Repsol — CRED Honrubia", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/cuenca/honrubia/cr-cm-3112-a-3-pk-166-mgde/" }
+      ]
+    },
+    {
+      "id": "castillejo-moeve-valencia",
+      "routeOrder": 4,
+      "name": "Moeve Castillejo de Iniesta",
+      "kind": "stop-area",
+      "dataStatus": "provisional",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 224, "status": "confirmed" },
+      "direction": { "label": "sentido Valencia", "status": "provisional" },
+      "category": "good",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Moeve Castillejo de Iniesta A-3 PK 224",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Moeve%20Castillejo%20de%20Iniesta%20A-3%20PK%20224",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": true,
+        "accessibility": "unknown"
+      },
+      "notes": ["Moeve incluye esta estación en su selección para viajar hacia Valencia y confirma PK 224, estación 24 h, tienda y R'spiro. La ficha no publica margen ni coordenadas: acceso y ubicación siguen provisionales."],
+      "sources": [
+        { "label": "Moeve — Castillejo de Iniesta", "url": "https://www.moeve.es/es/cerca-de-ti/gasolineras/cuenca/castillejo-de-iniesta-castillejo-de-iniesta" },
+        { "label": "Moeve — paradas A-3 dirección Valencia", "url": "https://www.moeve.es/es/blog/restaurants-a3-direction-valencia" }
+      ]
+    },
+    {
+      "id": "venta-del-moro-valencia",
+      "routeOrder": 5,
+      "name": "CRED Venta del Moro",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 266.1, "status": "confirmed" },
+      "direction": { "label": "sentido Valencia (margen derecho)", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": { "lat": 39.53910052, "lng": -1.31190042 },
+        "mapQuery": "CRED Venta del Moro A-3 PK 266,1 margen derecho",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=39.53910052,-1.31190042",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": true,
+        "restaurant": true,
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": true,
+        "accessibility": true
+      },
+      "notes": ["Repsol confirma la ficha vigente de Caudete de las Fuentes, PK 266,1 margen derecho, abierta 24 horas, con restauración y servicios familiares publicados."],
+      "sources": [
+        { "label": "Repsol — CRED Venta del Moro", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/valencia/caudete-de-las-fuentes/cr-a-3-pk-2661-md/" }
+      ]
+    },
+    {
+      "id": "siete-aguas-moratillas-valencia",
+      "routeOrder": 6,
+      "name": "CRED Moratillas — Siete Aguas",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 304, "status": "confirmed" },
+      "direction": { "label": "sentido Valencia (margen derecho)", "status": "confirmed" },
+      "category": "good",
+      "location": {
+        "coordinates": { "lat": 39.45056642, "lng": -0.92966714 },
+        "mapQuery": "CRED Moratillas Siete Aguas A-3 PK 304 margen derecho",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=39.45056642,-0.92966714",
+        "status": "confirmed"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": true,
+        "cafe": "unknown",
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": true,
+        "changingTable": true,
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": true
+      },
+      "notes": ["Ficha específica del PK 304 margen derecho: lunes-sábado 06:00–22:00 y domingo/festivos 07:00–22:00. No confundir con la instalación del PK 306,5 margen izquierdo."],
+      "sources": [
+        { "label": "Repsol — CRED Moratillas, A-3 PK 304", "url": "https://www.repsol.es/buscador-eess-y-puntos-de-recarga/valencia/siete-aguas/cr-a-3-pk-304/" }
+      ]
+    },
+    {
+      "id": "la-senyera-i-valencia",
+      "routeOrder": 7,
+      "name": "Moeve La Senyera I",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "A-3", "kilometerPost": 345, "status": "confirmed" },
+      "direction": { "label": "sentido Valencia", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Moeve La Senyera I A-3 PK 345 Quart de Poblet",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=Moeve%20La%20Senyera%20I%20A-3%20PK%20345%20Quart%20de%20Poblet",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": true,
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": "unknown",
+        "shop": true,
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": "unknown",
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": "unknown"
+      },
+      "notes": ["Moeve identifica La Senyera I para el trayecto hacia Valencia. Horario: lunes-viernes 06:30–21:30; sábado-domingo 07:00–21:00. Las coordenadas no constan en la ficha pública y la ubicación queda provisional."],
+      "sources": [
+        { "label": "Moeve — La Senyera I", "url": "https://www.moeve.es/es/cerca-de-ti/gasolineras/valencia/cuart-de-poblet-la-senyera-i" },
+        { "label": "Moeve — paradas A-3 dirección Valencia", "url": "https://www.moeve.es/es/blog/restaurants-a3-direction-valencia" }
+      ]
+    },
+    {
+      "id": "sagunto-barcelona",
+      "routeOrder": 8,
+      "name": "Área de Servicio Sagunto — dirección Barcelona",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-7", "kilometerPost": 478, "status": "confirmed" },
+      "direction": { "label": "dirección Barcelona", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Área de Servicio Sagunto AP-7 PK 478 dirección Barcelona",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20Sagunto%20AP-7%20PK%20478%20direcci%C3%B3n%20Barcelona",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": "unknown",
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": true,
+        "shop": "unknown",
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": "unknown"
+      },
+      "notes": ["Ficha Areas del lado Barcelona, PK 478, cafetería/restaurante de 07:00 a 23:00. El enlace busca explícitamente ese lado; al no publicarse coordenadas, la ubicación sigue provisional."],
+      "sources": [
+        { "label": "Areas — Sagunto dirección Barcelona", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-SAGUNTO-N" }
+      ]
+    },
+    {
+      "id": "la-plana-barcelona",
+      "routeOrder": 9,
+      "name": "Área de Servicio La Plana — dirección Barcelona",
+      "kind": "stop-area",
+      "dataStatus": "verified",
+      "kmFromOrigin": { "value": null, "status": "unknown" },
+      "distanceToDestinationKm": { "value": null, "status": "unknown" },
+      "road": { "name": "AP-7", "kilometerPost": 448, "status": "confirmed" },
+      "direction": { "label": "dirección Barcelona", "status": "confirmed" },
+      "category": "recommended",
+      "location": {
+        "coordinates": null,
+        "mapQuery": "Área de Servicio La Plana AP-7 PK 448 dirección Barcelona",
+        "navigationUrl": "https://www.google.com/maps/dir/?api=1&destination=%C3%81rea%20de%20Servicio%20La%20Plana%20AP-7%20PK%20448%20direcci%C3%B3n%20Barcelona",
+        "status": "provisional"
+      },
+      "services": {
+        "fuel": "unknown",
+        "toilets": "unknown",
+        "cafe": true,
+        "restaurant": true,
+        "shop": "unknown",
+        "parking": "unknown",
+        "changingTable": "unknown",
+        "highChairs": "unknown",
+        "kidsMenu": true,
+        "outdoorArea": "unknown",
+        "playArea": "unknown",
+        "open24Hours": false,
+        "accessibility": "unknown"
+      },
+      "notes": ["Última opción planificada antes de Alcossebre. Areas confirma el lado Barcelona, PK 448 y cafetería/restaurante de 07:00 a 21:00; no es la Galp del sentido Alicante."],
+      "sources": [
+        { "label": "Areas — La Plana dirección Barcelona", "url": "https://smarttravelers.areas.com/areas/es/store/AREA-LAPLANA" }
+      ]
+    }
+  ]
+}
