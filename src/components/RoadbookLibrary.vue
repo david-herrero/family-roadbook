@@ -1,5 +1,7 @@
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   groups: { type: Object, required: true },
   activeTripId: { type: String, required: true }
 })
@@ -7,9 +9,12 @@ defineProps({
 defineEmits(['close', 'select-trip'])
 
 const sections = [
-  { key: 'upcoming', title: 'Próximos viajes', empty: 'No hay viajes próximos en el catálogo.' },
-  { key: 'previous', title: 'Viajes anteriores', empty: 'Todavía no hay viajes anteriores.' }
+  { key: 'upcoming', title: 'Próximos viajes' },
+  { key: 'previous', title: 'Viajes anteriores' }
 ]
+const visibleSections = computed(() =>
+  sections.filter((section) => props.groups[section.key].length > 0)
+)
 
 const dateFormatter = new Intl.DateTimeFormat('es-ES', {
   day: 'numeric',
@@ -26,15 +31,15 @@ function formatDate(date) {
   <header class="library-header">
     <p class="trip-label">Biblioteca familiar</p>
     <h1>Mis roadbooks</h1>
-    <p>Elige un trayecto. Tu progreso se conserva por separado en este dispositivo.</p>
-    <button class="button button--header" type="button" @click="$emit('close')">
-      Volver al roadbook activo
+    <p>Elige un trayecto · progreso guardado en este dispositivo</p>
+    <button class="library-back" type="button" @click="$emit('close')">
+      ← Volver al roadbook
     </button>
   </header>
 
   <main class="library-main">
     <section
-      v-for="section in sections"
+      v-for="section in visibleSections"
       :key="section.key"
       class="library-section"
       :aria-labelledby="`${section.key}-trips-title`"
@@ -43,8 +48,7 @@ function formatDate(date) {
         <h2 :id="`${section.key}-trips-title`">{{ section.title }}</h2>
         <span>{{ groups[section.key].length }}</span>
       </div>
-      <p v-if="groups[section.key].length === 0" class="empty-state">{{ section.empty }}</p>
-      <div v-else class="library-grid">
+      <div class="library-grid">
         <article v-for="collection in groups[section.key]" :key="collection.id" class="collection-card">
           <h3>{{ collection.title }}</h3>
           <p>{{ collection.subtitle }}</p>
@@ -66,5 +70,6 @@ function formatDate(date) {
         </article>
       </div>
     </section>
+    <p v-if="visibleSections.length === 0" class="empty-state">No hay viajes en el catálogo.</p>
   </main>
 </template>
