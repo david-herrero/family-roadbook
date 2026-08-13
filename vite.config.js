@@ -9,9 +9,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/*.svg'],
       manifest: {
-        name: 'Roadbook familiar · Ida y vuelta',
-        short_name: 'Roadbook',
-        description: 'Próximas paradas familiares de un viaje, disponibles sin conexión.',
+        name: 'Biblioteca de roadbooks familiares',
+        short_name: 'Roadbooks',
+        description: 'Colección de roadbooks familiares disponible sin conexión.',
         lang: 'es',
         start_url: '/',
         scope: '/',

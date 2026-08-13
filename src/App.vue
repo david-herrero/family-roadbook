@@ -1,10 +1,16 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import EmergencyStop from './components/EmergencyStop.vue'
+import RoadbookLibrary from './components/RoadbookLibrary.vue'
 import RouteProgress from './components/RouteProgress.vue'
 import StopCard from './components/StopCard.vue'
-import returnTrip from './data/trips/castro-madrid-2026.json'
-import outboundTrip from './data/trips/madrid-castro-2026.json'
+import TripSelector from './components/TripSelector.vue'
+import catalog from './data/catalog.js'
+import {
+  findCollectionForTrip,
+  flattenCatalogTrips,
+  groupCatalogCollections
+} from './utils/catalog.js'
 import {
   clearPassedStops,
   createTripViewState,
@@ -13,19 +19,19 @@ import {
   savePassedStops
 } from './utils/roadbook.js'
 
-const trips = [outboundTrip, returnTrip]
-const tripOptions = [
-  { label: 'Ida', trip: outboundTrip },
-  { label: 'Vuelta', trip: returnTrip }
-]
+const catalogEntries = flattenCatalogTrips(catalog)
+const trips = catalogEntries.map((entry) => entry.trip)
 const initialTrip = selectDefaultTrip(trips) ?? trips[0]
 
 const activeTripId = ref(initialTrip.id)
 const passedIds = ref([])
 const emergencyOpen = ref(false)
 const isOffline = ref(false)
+const libraryOpen = ref(false)
 
 const activeTrip = computed(() => trips.find((trip) => trip.id === activeTripId.value) ?? initialTrip)
+const activeCollection = computed(() => findCollectionForTrip(catalog, activeTrip.value.id))
+const catalogGroups = groupCatalogCollections(catalog)
 const upcomingStops = computed(() =>
   getUpcomingStops(activeTrip.value.stops, passedIds.value, 3, activeTrip.value.date)
 )
@@ -45,18 +51,9 @@ const longDateFormatter = new Intl.DateTimeFormat('es-ES', {
   year: 'numeric',
   timeZone: 'UTC'
 })
-const shortDateFormatter = new Intl.DateTimeFormat('es-ES', {
-  day: 'numeric',
-  month: 'short',
-  timeZone: 'UTC'
-})
 const formattedDate = computed(() =>
   longDateFormatter.format(new Date(`${activeTrip.value.date}T00:00:00Z`))
 )
-
-function formatTripOptionDate(date) {
-  return shortDateFormatter.format(new Date(`${date}T00:00:00Z`)).replace('.', '')
-}
 
 function applyTripState(trip) {
   const state = createTripViewState(window.localStorage, trip)
@@ -65,12 +62,14 @@ function applyTripState(trip) {
 }
 
 function selectTrip(tripId) {
-  if (tripId === activeTripId.value) return
   const nextTrip = trips.find((trip) => trip.id === tripId)
   if (!nextTrip) return
 
-  activeTripId.value = nextTrip.id
-  applyTripState(nextTrip)
+  if (tripId !== activeTripId.value) {
+    activeTripId.value = nextTrip.id
+    applyTripState(nextTrip)
+  }
+  libraryOpen.value = false
 }
 
 function updateConnectionStatus() {
@@ -109,26 +108,26 @@ onBeforeUnmount(() => {
       Sin conexión · El roadbook guardado sigue disponible
     </div>
 
-    <header class="trip-header">
+    <RoadbookLibrary
+      v-if="libraryOpen"
+      :groups="catalogGroups"
+      :active-trip-id="activeTrip.id"
+      @close="libraryOpen = false"
+      @select-trip="selectTrip"
+    />
+
+    <template v-else>
+      <header class="trip-header">
       <div class="trip-header__topline">
-        <span class="trip-label">Roadbook familiar</span>
+        <button class="library-link" type="button" @click="libraryOpen = true">📚 Mis roadbooks</button>
         <span class="status-pill">{{ dataStatusLabel }}</span>
       </div>
 
-      <div class="trip-selector" role="group" aria-label="Seleccionar viaje">
-        <button
-          v-for="option in tripOptions"
-          :key="option.trip.id"
-          class="trip-selector__button"
-          :class="{ 'trip-selector__button--active': option.trip.id === activeTrip.id }"
-          type="button"
-          :aria-pressed="option.trip.id === activeTrip.id"
-          @click="selectTrip(option.trip.id)"
-        >
-          <span>{{ option.label }} · {{ formatTripOptionDate(option.trip.date) }}</span>
-          <small>{{ option.trip.id === activeTrip.id ? '✓ Activo' : 'Seleccionar' }}</small>
-        </button>
-      </div>
+      <TripSelector
+        :trips="activeCollection.trips"
+        :active-trip-id="activeTrip.id"
+        @select="selectTrip"
+      />
 
       <h1>{{ activeTrip.title }}</h1>
       <p class="destination">Destino: <strong>{{ activeTrip.destination.label }}</strong></p>
@@ -159,9 +158,9 @@ onBeforeUnmount(() => {
           Reiniciar viaje
         </button>
       </div>
-    </header>
+      </header>
 
-    <main>
+      <main>
       <aside class="data-warning" aria-label="Aviso sobre los datos">
         <strong>Importante:</strong> {{ activeTrip.dataNotice }} Confirma siempre el tráfico y la ruta real en Google Maps antes de desviarte.
       </aside>
@@ -222,7 +221,8 @@ onBeforeUnmount(() => {
           />
         </div>
       </details>
-    </main>
+      </main>
+    </template>
 
     <footer>
       <p>Este roadbook complementa a Google Maps; no ofrece navegación ni tráfico en tiempo real.</p>

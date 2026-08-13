@@ -45,6 +45,16 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
 }
 
 .trip-label { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.library-link {
+  min-height: 44px;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #a9c2ba;
+  border-radius: 0.65rem;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 800;
+}
 
 .status-pill, .category-badge {
   display: inline-flex;
@@ -61,7 +71,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
 .trip-header h1 { max-width: 700px; margin: 1.25rem 0 0.35rem; font-size: clamp(2rem, 8vw, 3.7rem); line-height: 0.98; }
 .destination { margin: 0 0 1.35rem; color: #dceae4; font-size: 1rem; }
 
-.trip-selector { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; margin-top: 1rem; }
+.trip-selector { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.55rem; margin-top: 1rem; }
 .trip-selector__button {
   min-height: 52px;
   padding: 0.5rem 0.7rem;
@@ -111,6 +121,34 @@ dd { margin: 0; font-weight: 650; }
 .button--header { color: #fff; border-color: #a9c2ba; background: transparent; }
 
 main { padding: 1rem; }
+.library-header { padding: 1.5rem 1rem; color: #fff; background: #173f35; }
+.library-header h1 { margin: 0.35rem 0; font-size: clamp(2.2rem, 10vw, 4rem); line-height: 1; }
+.library-header > p:not(.trip-label) { max-width: 42rem; margin: 0 0 1rem; color: #dceae4; line-height: 1.45; }
+.library-main { min-height: 60vh; }
+.library-section + .library-section { margin-top: 2rem; }
+.library-section .section-heading { align-items: center; }
+.library-section h2 { margin: 0; font-size: 1.55rem; }
+.library-grid { display: grid; gap: 1rem; margin-top: 0.85rem; }
+.collection-card { padding: 1rem; border: 1px solid #cac5b9; border-radius: 1rem; background: #fff; }
+.collection-card h3 { margin: 0; font-size: 1.35rem; }
+.collection-card > p { margin: 0.2rem 0 1rem; color: #52635d; font-weight: 700; }
+.collection-trips { display: grid; gap: 0.65rem; }
+.collection-trip {
+  width: 100%;
+  min-height: 74px;
+  padding: 0.75rem;
+  border: 2px solid #b8c1bd;
+  border-radius: 0.75rem;
+  color: #173f35;
+  background: #f8f6f0;
+  cursor: pointer;
+  text-align: left;
+}
+.collection-trip strong, .collection-trip span, .collection-trip small { display: block; overflow-wrap: anywhere; }
+.collection-trip span { margin-top: 0.15rem; }
+.collection-trip small { margin-top: 0.3rem; color: #52635d; font-weight: 750; }
+.collection-trip--active { border-color: #b66c00; background: #fff2cf; }
+.collection-trip--active small { color: #6d4100; }
 .data-warning { padding: 0.85rem 1rem; border-left: 5px solid #b66c00; background: #fff2cf; line-height: 1.45; }
 
 .emergency { margin: 1rem 0 1.5rem; }
@@ -180,6 +218,8 @@ footer { padding: 1.25rem; color: #cfe0da; background: #102f27; text-align: cent
   .trip-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .progress-summary { grid-template-columns: auto minmax(180px, 1fr) auto; align-items: center; }
   .card-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .library-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .collection-trips { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .stop-card--highlighted:first-child { grid-column: 1 / -1; }
   .stop-card__actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .timeline__item { grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: start; }
